@@ -8,11 +8,11 @@
       @keyframes fadeIn {
         0% {
           opacity: 0;
-          margin-top: 0px;
+          margin-left: 0;
         }
         100% {
           opacity: 1;
-          margin-top: 20px;
+          margin-left: 50%;
         }
       }
       
@@ -64,7 +64,7 @@
       }
       
       .message p {
-        animation: fadeInOnly 2s ease;
+        animation: fadeInOnly 1.5s ease;
       }
       
       #messageForm {
@@ -160,11 +160,13 @@
       const mess = msg.toUpperCase();
       if (mess === "HI") {
         message("Hi! How can I piss you off?","Dog")
+      } else if(mess.includes("SUP") === true || mess.includes("WSP") === true) {
+        message("Hello! How can I ruin your day?","Dog")
       } else if(mess.includes("HELLO") === true) {
         message("Hello! How can I piss you off?","Dog")
       } else if(mess.includes("HOW ARE YOU")) {
         message("As usual, absolutely horrible. Anyways, how can I piss you off today?","Dog")
-      } else if(mess.includes("WANNA FRICK") === true || mess.includes("WANNA FUCK") === true) {
+      } else if(mess.includes("WANNA FRICK") === true || mess.includes("WANNA FUCK") === true || mess.includes("WANNA HAVE SEX") === true|| mess.includes("WANNA SEX") === true) {
         message("Not with your ugly ass, though I would make an exception for your mother.","Dog")
       } else if(mess.includes("DO YOU LIKE ME")) {
         message("As an AI language model I cannot have feelings or opinions about people. But if I could, I absolutely hate you.","Dog")
@@ -213,6 +215,12 @@
         message("It's like comparing a dumpster, and a plastic trash can from Dollar Tree. And I'm the plastic trash can.","Dog")
       } else if(mess.includes("FAVORITE SITE") === true || mess.includes("FAVORITE WEBSITE") === true) {
         message("<a href='https://xhamster.com'>https://xhamster.com</a> it has a lot of hamsters","Dog")
+      } else if(mess.includes("GAMING SITE") === true || mess.includes("GAMING WEBSITE") === true) {
+        message("<a href='https://butterdogco.com/da-hub/revamp'>https://butterdogco.com/da-hub/revamp</a> Sure! Here's a gaming site by ButterDogCo.","Dog")
+      } else if(mess.includes("I WANNA DIE") === true || mess.includes("I WANT TO DIE") === true) {
+        message("Ok, just make sure respawn is enabled.","Dog")
+      } else if(mess.includes("NOTHING") === true || mess.includes("NVM") === true || mess.includes("NEVERMIND") === true) {
+        message("ok","Dog")
       } else {
         message(confuse,"Dog");
       }
