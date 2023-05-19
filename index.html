@@ -33,11 +33,25 @@
         width: 100vw;
         overflow-x: hidden;
         padding-bottom: 90px;
+        padding-top: 80px;
       }
       
       * {
         font-family: 'DM Sans', sans-serif;
       }
+      
+      header {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 80px;
+        padding-left: 40px;
+        background: rgba(240,240,240,0.5);
+        backdrop-filter: blur(8px);
+        z-index: 999999;
+      }
+      
       .message {
         background: rgba(240,240,240,0.8);
         width: 90vw;
@@ -92,6 +106,7 @@
     </style>
   </head>
   <body>
+    <header><h1>Dog AI</h1></header>
     <div class="messages" id="messages">
       <div class="message">
         <p><b>Dog:</b> Hello! I'm Dog AI. Feel free to ask me absolutely anything.</p>
