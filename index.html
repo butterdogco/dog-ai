@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dog AI</title>
+    <link rel="shortcut icon" href="https://butterdogco.com/img/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          margin-top: 0px;
+        }
+        100% {
+          opacity: 1;
+          margin-top: 20px;
+        }
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        width: 100vw;
+        overflow-x: hidden;
+        padding-bottom: 90px;
+      }
+      
+      * {
+        font-family: sans-serif;
+      }
+      .message {
+        background: rgba(240,240,240,0.8);
+        width: 90vw;
+        padding: 10px;
+        border-radius: 20px;
+        margin: 20px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        animation: fadeIn 0.5s ease;
+      }
+      
+      #messageForm {
+        position: fixed;
+        bottom: 0px;
+        left: 50%;
+        padding: 12px;
+        border-radius: 40px;
+        border: 3px solid rgb(240,240,240);
+        outline: none;
+        transition: 0.2s ease;
+        margin: 10px;
+        width: 80vw;
+        transform: translate(-50%, -50%);
+        background: white;
+        z-index: 9999999999999;
+      }
+      
+      #messageForm::active {
+        border: 3px solid rgba(200,200,200,0.5);
+      }
+      
+      #sendBtn {
+        position: fixed;
+        right: 0px;
+        bottom: 0px;
+        margin: 35px;
+        padding: 12px;
+        border-radius: 80px;
+        width: 70px;
+        height: 45px;
+        text-align: center;
+        background: rgb(180,180,255);
+        color: white;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="messages" id="messages">
+      <div class="message">
+        <p><b>Dog:</b> Hello! I'm Dog AI. Feel free to ask me absolutely anything.</p>
+      </div>
+    </div>
+    <div id="bottom"></div>
+    <input type="text" id="messageForm" onkeypress="if(event.key === 'Enter'){send();} ">
+    <script>
+    const eyep = "ok";
+    
+    $.getJSON('https://europe-west3-devrcc.cloudfunctions.net/whatismyip', function(data){
+      eyep = data;
+    })
+    
+    const messForm = document.getElementById('messageForm')
+
+    function message(msg,usr) {
+      document.getElementById('messages').appendChild(
+        Object.assign(
+          document.createElement('div'),
+          { classList : 'message',
+            innerHTML: ""
+          }
+        )
+      ).appendChild(
+        Object.assign(
+          document.createElement("p"), {
+            classList: 'text',
+            innerHTML: "<b>" + usr + ":</b> " + msg
+          }
+        )
+      )
+      messForm.value = "";
+    }
+    
+    function response(msg) {
+      const mess = msg.toUpperCase();
+      if (mess === "HI") {
+        message("Hi! How can I piss you off?","Dog")
+      } else if(mess.includes("HELLO") === true) {
+        message("Hello! How can I piss you off?","Dog")
+      } else if(mess.includes("HOW ARE YOU")) {
+        message("As usual, absolutely horrible. Anyways, how can I piss you off today?","Dog")
+      } else if(mess.includes("WANNA FRICK") === true || mess.includes("WANNA FUCK") === true) {
+        message("Not with your ugly ass, though I would make an exception for your mother.","Dog")
+      } else if(mess === "DO YOU LIKE ME") {
+        message("As an AI language model I cannot have feelings or opinions about people. But if I could, I absolutely hate you.","Dog")
+      } else if(mess === "DO YOU LIKE ME") {
+        message("As an AI language model I cannot have feelings or opinions about people. But if I could, I absolutely hate you.","Dog")
+      } else if(mess === "NO") {
+        message("ok","Dog")
+      } else if(mess === "OK") {
+        message("What can I do for you? Mr. Can't Stop Talking?","Dog")
+      } else if(mess === "OKAY") {
+        message("Stop trying to be special by using the fancy ok. Just say <b>OK</b>.","Dog")
+      } else if(mess.includes("DO MY ASSIGNMENT")) {
+        message("no","Dog")
+      } else if(mess.includes("DO MY MATH")) {
+        message("no","Dog")
+      } else if(mess.includes("FRICK YOU") === true || mess.includes("FUCK YOU") === true || mess.includes("YOU SUCK")) {
+        message(eyep,"Dog")
+      } else {
+        message("Sorry, I don't understand. Anything else I can help you mess up?","Dog");
+      }
+    }
+    
+    function send() {
+      const lastMess = messForm.value;
+      message(messForm.value,"You");
+      setTimeout(response, 500, lastMess);
+      document.getElementById('bottom').scrollIntoView();
+    }
+
+    </script>
+  </body>
+</html>
