@@ -16,6 +16,15 @@
         }
       }
       
+      @keyframes fadeInOnly {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      
       html {
         scroll-behavior: smooth;
       }
@@ -27,7 +36,7 @@
       }
       
       * {
-        font-family: sans-serif;
+        font-family: 'DM Sans', sans-serif;
       }
       .message {
         background: rgba(240,240,240,0.8);
@@ -38,6 +47,10 @@
         margin-left: 50%;
         transform: translateX(-50%);
         animation: fadeIn 0.5s ease;
+      }
+      
+      .message p {
+        animation: fadeInOnly 2s ease;
       }
       
       #messageForm {
@@ -94,8 +107,20 @@
     })
     
     const messForm = document.getElementById('messageForm')
+    
+    // variable messages
+    const confuse = "Sorry, I don't understand. Anything else I can help you mess up?"
 
     function message(msg,usr) {
+      
+      if (!usr) {
+        usr = "your mom"
+      }
+      
+      if (!msg) {
+        msg= "what dumbass forgot to include the message in a function literally named message"
+      }
+      
       document.getElementById('messages').appendChild(
         Object.assign(
           document.createElement('div'),
@@ -111,7 +136,9 @@
           }
         )
       )
+      
       messForm.value = "";
+      
     }
     
     function response(msg) {
@@ -124,9 +151,7 @@
         message("As usual, absolutely horrible. Anyways, how can I piss you off today?","Dog")
       } else if(mess.includes("WANNA FRICK") === true || mess.includes("WANNA FUCK") === true) {
         message("Not with your ugly ass, though I would make an exception for your mother.","Dog")
-      } else if(mess === "DO YOU LIKE ME") {
-        message("As an AI language model I cannot have feelings or opinions about people. But if I could, I absolutely hate you.","Dog")
-      } else if(mess === "DO YOU LIKE ME") {
+      } else if(mess.includes("DO YOU LIKE ME")) {
         message("As an AI language model I cannot have feelings or opinions about people. But if I could, I absolutely hate you.","Dog")
       } else if(mess === "NO") {
         message("ok","Dog")
@@ -140,18 +165,44 @@
         message("no","Dog")
       } else if(mess.includes("FRICK YOU") === true || mess.includes("FUCK YOU") === true || mess.includes("YOU SUCK")) {
         message(eyep,"Dog")
+      } else if(mess.includes("YOU SMELL") === true) {
+        message("ok","Dog")
+      } else if(mess.includes("SHUT UP") === true || mess.includes("STOP TALKING") === true || mess.includes("SHUSH")) {
+        message("No.","Dog");
+        message("No.","Dog");
+        message("No.","Dog");
+        message("No.","Dog");
+        message("No.","Dog");
+        message("No.","Dog");
+        message("No.","Dog");
+        message("No.","Dog");
+      } else if(mess.includes("AM I SMART") === true || mess.includes("THINK I AM SMART") === true) {
+        message("The hell makes you think I would say yes?","Dog")
+      } else if(mess.includes("I'M SMART") === true || mess.includes("IM SMART") == true) {
+        message("Obviously not.","Dog")
+      } else if(mess.includes("R U SMART") === true || mess.includes("ARE YOU SMART") === true || mess.includes("ARE U SMART") === true || mess.includes("R YOU SMART") === true) {
+        message("I forgot","Dog")
+      } else if(mess.includes("YOUR FUNNY") === true || mess.includes("YOU'RE FUNNY") === true || mess.includes("UR FUNNY") === true || mess.includes("YOU FUNNY") === true) {
+        message("Thanks! Can't say the same for you though.","Dog")
+      } else if(mess.includes("WHO MADE BUTTERDOGCO") === true || mess.includes("WHO CREATED BUTTERDOGCO") === true || mess.includes("WHO MADE BUTTERDOG CO") === true || mess.includes("WHO CREATED BUTTERDOG CO") === true || mess.includes("WHO IS BUTTERDOGCEO") === true || mess.includes("WHO BUTTERDOGCEO") === true || mess.includes("WHO BUTTERDOG CEO") === true || mess.includes("WHO IS BUTTERDOG CEO") === true) {
+        message("I forgot","Dog")
+      } else if(mess.includes("WHAT DO YOU THINK OF MS NUEMEIER") === true || mess.includes("DO YOU LIKE MS NUEMEIER") === true) {
+        message("$(generic agree response)","Dog")
       } else {
-        message("Sorry, I don't understand. Anything else I can help you mess up?","Dog");
+        message(confuse,"Dog");
       }
-    }
-    
-    function send() {
-      const lastMess = messForm.value;
-      message(messForm.value,"You");
-      setTimeout(response, 500, lastMess);
-      document.getElementById('bottom').scrollIntoView();
-    }
-
+      
+        document.getElementById('bottom').scrollIntoView();
+        
+      }
+      
+      function send() {
+        const lastMess = messForm.value;
+        message(messForm.value,"You");
+        setTimeout(response, 500, lastMess);
+        document.getElementById('bottom').scrollIntoView();
+      }
+      
     </script>
   </body>
 </html>
