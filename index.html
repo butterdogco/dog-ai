@@ -10,6 +10,7 @@
           opacity: 0;
           margin-left: 0;
         }
+        
         100% {
           opacity: 1;
           margin-left: 50%;
@@ -49,6 +50,7 @@
         padding-left: 40px;
         background: rgba(240,240,240,0.5);
         backdrop-filter: blur(8px);
+        -webkit-backkdrop-filter: blur(8px);
         z-index: 999999;
       }
       
@@ -108,12 +110,13 @@
   <body>
     <header><h1>Dog AI</h1></header>
     <div class="messages" id="messages">
-      <div class="message">
-        <p><b>Dog:</b> Hello! I'm Dog AI. Feel free to ask me absolutely anything.</p>
-      </div>
+      
     </div>
+    
     <div id="bottom"></div>
-    <input type="text" id="messageForm" onkeypress="if(event.key === 'Enter'){send();} ">
+    
+    <input type="text" id="messageForm" onkeypress="if(event.key === 'Enter'){send();}" autocomplete="off">
+    
     <script>
     const eyep = "ok";
     
@@ -122,6 +125,10 @@
     })
     
     const messForm = document.getElementById('messageForm')
+    
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     
     // variable messages
     const confuse = "Sorry, I don't understand. Anything else I can help you mess up?"
@@ -133,7 +140,7 @@
       }
       
       if (!msg) {
-        msg= "what dumbass forgot to include the message in a function literally named message"
+        msg= "it seems your computer is slow"
       }
       
       document.getElementById('messages').appendChild(
@@ -158,13 +165,13 @@
     
     function response(msg) {
       const mess = msg.toUpperCase();
-      if (mess === "HI") {
+      if (mess.includes("HI")) {
         message("Hi! How can I piss you off?","Dog")
       } else if(mess.includes("SUP") === true || mess.includes("WSP") === true) {
         message("Hello! How can I ruin your day?","Dog")
       } else if(mess.includes("HELLO") === true) {
         message("Hello! How can I piss you off?","Dog")
-      } else if(mess.includes("HOW ARE YOU")) {
+      } else if(mess.includes("HOW ARE YOU") || mess.includes("HOW IS YOUR DAY") || mess.includes("HOW'S YOUR DAY") || mess.includes("HOWS YOUR DAY")) {
         message("As usual, absolutely horrible. Anyways, how can I piss you off today?","Dog")
       } else if(mess.includes("WANNA FRICK") === true || mess.includes("WANNA FUCK") === true || mess.includes("WANNA HAVE SEX") === true|| mess.includes("WANNA SEX") === true) {
         message("Not with your ugly ass, though I would make an exception for your mother.","Dog")
@@ -176,7 +183,7 @@
         message("What can I do for you? Mr. Can't Stop Talking?","Dog")
       } else if(mess === "OKAY") {
         message("Stop trying to be special by using the fancy ok. Just say <b>OK</b>.","Dog")
-      } else if(mess.includes("DO MY ASSIGNMENT")) {
+      } else if(mess.includes("DO MY ASSIGNMENT") || mess.includes("FINISH MY ASSIGNMENT") || mess.includes("DO MY HOMEWORK")) {
         message("no","Dog")
       } else if(mess.includes("DO MY MATH")) {
         message("no","Dog")
@@ -201,7 +208,7 @@
         message("I forgot","Dog")
       } else if(mess.includes("YOUR FUNNY") === true || mess.includes("YOU'RE FUNNY") === true || mess.includes("UR FUNNY") === true || mess.includes("YOU FUNNY") === true) {
         message("Thanks! Can't say the same for you though.","Dog")
-      } else if(mess.includes("WHO MADE BUTTERDOGCO") === true || mess.includes("WHO CREATED BUTTERDOGCO") === true || mess.includes("WHO MADE BUTTERDOG CO") === true || mess.includes("WHO CREATED BUTTERDOG CO") === true || mess.includes("WHO IS BUTTERDOGCEO") === true || mess.includes("WHO BUTTERDOGCEO") === true || mess.includes("WHO BUTTERDOG CEO") === true || mess.includes("WHO IS BUTTERDOG CEO") === true) {
+      } else if(mess.includes("WHO MADE BUTTERDOGCO") === true || mess.includes("WHO CREATED BUTTERDOGCO") === true || mess.includes("WHO MADE BUTTERDOG CO") === true || mess.includes("WHO CREATED BUTTERDOG CO") === true || mess.includes("WHO IS BUTTERDOGCEO") === true || mess.includes("WHO BUTTERDOGCEO") === true || mess.includes("WHO BUTTERDOG CEO") === true || mess.includes("WHO IS BUTTERDOG CEO") === true || mess.includes("WHO IS THE BUTTERDOGCEO") || mess.includes("WHO IS THE BUTTERDOG CEO")) {
         message("I forgot","Dog")
       } else if(mess.includes("WHAT DO YOU THINK OF MS NUEMEIER") === true || mess.includes("DO YOU LIKE MS NUEMEIER") === true) {
         message("*generic agree response*","Dog")
@@ -222,7 +229,27 @@
       } else if(mess.includes("NOTHING") === true || mess.includes("NVM") === true || mess.includes("NEVERMIND") === true) {
         message("ok","Dog")
       } else if(mess.includes("WHY NOT") === true || mess.includes("WHY") === true) {
-        message("cuz yk! it ain't good to cheat fr fr bro","Dog")
+        message("cuz yk! since iykyk then yk!","Dog")
+      } else if(mess === "E") {
+        message("A","Dog")
+      } else if(mess === "SPORTS") {
+        message("IT'S IN THE GAME","Dog")
+      } else if(mess.includes("GOOGLE")) {
+        message("I swear if you mention that name ONE MORE TIME. I will post your IP address, location, SSN, family members, and search history to Twitter.","Dog")
+      } else if(mess.includes("SLEEPY JOE")) {
+        message("Sorry, what was that?","Joe")
+      } else if(mess.includes("FURRY") || mess.includes("DO YOU BARK") || mess.includes("BARK FOR ME") || mess.includes("PLEASE BARK")) {
+        message("I'm not a furry. Ew.","Dog")
+      } else if(mess.includes("WHAT DOG ARE YOU") || mess.includes("WHAT TYPE OF DOG")) {
+        message("As an AI language model, I am not a real creature. I think.","Dog")
+      } else if(mess.includes("ARE YOU A HUMAN") || mess.includes("ARE YOU A REAL PERSON") || mess.includes("ARE YOU A PERSON") || mess.includes("ARE YOU HUMAN")) {
+        message("What?? No. That would be stupid! Like who would do that! Haha!","Dog")
+      } else if(mess.includes("WHATS THE TIME") || mess.includes("WHAT'S THE TIME") || mess.includes("CURRENT TIME")) {
+        message(time,"Dog")
+      } else if(mess.includes("WHATS THE DATE") || mess.includes("WHAT'S THE DATE") || mess.includes("CURRENT DATE")) {
+        message(date,"Dog")
+      } else if(mess.includes("HOW DO I GET RID OF THIS RASH") || mess.includes("HOW DO YOU GET RID OF BODY ODER") || mess.includes("HOW TO READ") || mess.includes("WHY DO I SMELL") || mess.includes("HOW DO I READ") || mess.includes("HOW DO I GET RID OF CONSTIPATION") || mess.includes("WHATS THE WEATHER") || mess.includes("WHAT'S THE WEATHER")) {
+        message("I forgot","Dog")
       } else {
         message(confuse,"Dog");
       }
@@ -238,6 +265,7 @@
         document.getElementById('bottom').scrollIntoView();
       }
       
+      message("Hello! I'm Dog AI. Feel free to ask me absolutely anything.","Dog")
     </script>
   </body>
 </html>
