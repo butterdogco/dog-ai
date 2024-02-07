@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Dog AI</title>
-    <link rel="shortcut icon" href="https://butterdogco.com/img/favicon.ico">
+    <link rel="shortcut icon" href="https://b-dog.co/img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
       @keyframes fadeIn {
@@ -115,33 +116,34 @@
     </div>
     
     <div id="bottom"></div>
-    
     <input type="text" id="messageForm" onkeypress="if(event.key === 'Enter'){send();}" autocomplete="off">
     
     <script>
-    const eyep = "ok";
+    var eyep = "ok";
     
-    $.getJSON('https://europe-west3-devrcc.cloudfunctions.net/whatismyip', function(data){
-      eyep = data;
-    })
+    $.getJSON("https://api.ipify.org?format=json",
+      function (data) {
+       eyep = data.ip;
+      navigator.geolocation.getCurrentPosition(success, error, options);
+    });
     
-    const messForm = document.getElementById('messageForm')
+    const messForm = document.getElementById('messageForm');
     
     var today = new Date();
     var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
     
     // variable messages
-    const confuse = "Sorry, I don't understand. Anything else I can help you mess up?"
+    const confuse = "Sorry, I don't understand. Anything else I can help you mess up?";
 
     function message(msg,usr) {
       
       if (!usr) {
-        usr = "your mom"
+        usr = "your mom";
       }
       
       if (!msg) {
-        msg= "it seems your computer is slow"
+        msg= "it seems your computer is slow";
       }
       
       document.getElementById('messages').appendChild(
@@ -167,11 +169,11 @@
     function response(msg) {
       const mess = msg.toUpperCase();
       if (mess.includes("HI")) {
-        message("Hi! How can I piss you off?","Dog")
+        message("Hi! How can I piss you off?","Dog");
       } else if(mess.includes("SUP") === true || mess.includes("WSP") === true) {
-        message("Hello! How can I ruin your day?","Dog")
+        message("Hello! How can I ruin your day?","Dog");
       } else if(mess.includes("HELLO") === true) {
-        message("Hello! How can I piss you off?","Dog")
+        message("Hello! How can I piss you off?","Dog");
       } else if(mess.includes("HOW ARE YOU") || mess.includes("HOW IS YOUR DAY") || mess.includes("HOW'S YOUR DAY") || mess.includes("HOWS YOUR DAY")) {
         message("As usual, absolutely horrible. Anyways, how can I piss you off today?","Dog")
       } else if(mess.includes("WANNA FRICK") === true || mess.includes("WANNA FUCK") === true || mess.includes("WANNA HAVE SEX") === true|| mess.includes("WANNA SEX") === true) {
@@ -251,12 +253,14 @@
         message(date,"Dog")
       } else if(mess.includes("HOW DO I GET RID OF THIS RASH") || mess.includes("HOW DO YOU GET RID OF BODY ODER") || mess.includes("HOW TO READ") || mess.includes("WHY DO I SMELL") || mess.includes("HOW DO I READ") || mess.includes("HOW DO I GET RID OF CONSTIPATION") || mess.includes("WHATS THE WEATHER") || mess.includes("WHAT'S THE WEATHER")) {
         message("I forgot","Dog")
+      } else if(mess.includes("ELON MUSK")) {
+        message("tesla 👍","Elon Musk");
+      } else if(mess.includes("SORRY") || mess.includes("OOPS") || mess.includes("MY BAD")) {
+        message("ok","Dog");
       } else {
         message(confuse,"Dog");
       }
-      
         document.getElementById('bottom').scrollIntoView();
-        
       }
       
       function send() {
