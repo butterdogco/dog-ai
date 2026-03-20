@@ -1,6 +1,7 @@
 import { Bot as AppleiDotBot } from "./models/apple-idot.js";
 import { Bot as MidBot } from "./models/mid.js";
 import { Bot as AdvancedBot } from "./models/advanced.js";
+import { Bot as ResponsiveBot } from "./models/responsive.js";
 
 const MESSAGE_INPUT = document.getElementById('message-input');
 const MESSAGE_FORM = document.getElementById('message-form');
@@ -10,6 +11,7 @@ const MODELS = {
   "Apple iDot": AppleiDotBot,
   "Boring": MidBot,
   "Advanced": AdvancedBot,
+  "Responsive": ResponsiveBot,
 };
 const STARTING_MESSAGES = [
   "This IS Wherin the world's Work begins.",
