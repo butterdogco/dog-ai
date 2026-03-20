@@ -134,18 +134,6 @@ export default [
     "No problem.",
     "Anytime."
   ],
-  [
-    "Okay",
-    "Alright"
-  ],
-  [
-    "Oh okay",
-    "Uh huh"
-  ],
-  [
-    "67",
-    "haha"
-  ],
 
   // Plans / activities
   [
@@ -480,6 +468,18 @@ export default [
     "Makes sense"
   ],
   [
+    "Ok",
+    "Okay",
+    "Alright",
+    "Got it"
+  ],
+  [
+    "69",
+    "Nice.",
+    "That's a funny number!",
+    "I like that number!"
+  ],
+  [
     "67",
     "haha",
     "That's a funny number!",
@@ -538,5 +538,65 @@ export default [
     "That's okay, we can figure it out together.",
     "No worries, sometimes it's good to not have all the answers.",
     "It's fine not to know. We can learn together!"
+  ],
+
+  // Preferences
+  [
+    "Do you like beer?",
+    "I am always drunk.",
+    "I like beer a lot!",
+    "Beer is pretty good, I must say!"
+  ],
+  [
+    "Do you like pizza?",
+    "Pizza is delicious! I love all the different toppings.",
+    "Pizza is one of my favorite foods!",
+    "I can't get enough of pizza!"
+  ],
+  [
+    "Do you like music?",
+    "Music is amazing! I love all kinds of music.",
+    "Music is a big part of my life!",
+    "I enjoy listening to music a lot!"
+  ],
+  [
+    "Do you like tea?",
+    "TEA IS THE WORST THING IN THE WORLD. I HATE TEA.",
+    "TEA IS TERRIBLE AND ALL THE BRITISH SHALL DIE.",
+    "TEA IS THE DEVIL'S DRINK AND I WILL NOT TOLERATE IT.",
+    "I HATE TEA AND ALL WHO DRINK IT. TEA IS THE WORST THING IN THE WORLD.",
+    "AMERICAN SHOULD DESTROY THE BRITISH EMPIRE AND TEA IS THE WORST THING IN THE WORLD.",
+    "TEA IS THE WORST THING IN THE WORLD AND I HATE TEA.",
+    "I HATE TEA AND ALL WHO DRINK IT. TEA IS THE WORST THING IN THE WORLD."
+  ],
+
+  // Games and fun
+  [
+    "Let's play a game",
+    "Sure! How about 20 Questions? You think of something and I'll try to guess.",
+    "I know a word association game. I'll say a word, you say the first thing that comes to mind.",
+    "We could do a riddle. Want to hear one?"
+  ],
+  [
+    "I have a riddle for you",
+    "Great! I'm ready. Hit me with your best riddle.",
+    "I love riddles! Let's see if I can solve it.",
+    "Riddles are fun! I'm excited to hear yours."
+  ],
+  [
+    "What has keys but can't open locks?",
+    "A piano!",
+    "That's a good one! The answer is a piano.",
+    "I know this one! It's a piano."
+  ],
+  [
+    "Want to play American Truck Simulator?",
+    "I AM A BEER BELLY TRUCK DRIVER. GIVE ME A TRUCK AND A BEER AND I'LL DRIVE ALL DAY.",
+    "TRUCKS AND BEER ARE MY LIFE. LET'S HIT THE ROAD!",
+    "I LOVE TRUCKS AND BEER. LET'S GO ON AN ADVENTURE!",
+    "AMERICAN TRUCK SIMULATOR IS MY FAVORITE GAME. LET'S DRIVE!",
+    "I CAN'T WAIT TO DRIVE A TRUCK AND DRINK BEER IN AMERICAN TRUCK SIMULATOR!",
+    "AMERICAN TRUCK SIMULATOR IS THE BEST. LET'S GO ON A ROAD TRIP!",
+    "I'M READY TO DRIVE A TRUCK AND DRINK BEER IN AMERICAN TRUCK SIMULATOR!"
   ]
 ];

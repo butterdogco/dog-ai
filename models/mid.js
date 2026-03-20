@@ -1,6 +1,6 @@
-import DATA from "../data/basic.js";
+import DATA from "../data/larger.js";
 
-const THRESHOLD = 0.5;
+const THRESHOLD = 0.3;
 
 /**
  * bigram_model.js (expanded)

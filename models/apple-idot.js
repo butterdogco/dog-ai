@@ -1,6 +1,7 @@
 import DATA from "../data/basic.js";
 
 const THRESHOLD = 0.5;
+const MAX_TOKENS = 50;
 
 function normalize(text) {
   return String(text ?? "")
@@ -166,10 +167,6 @@ export function determineResponse(previousMessage, model) {
   const responses = best.convo.slice(1);
   // if (responses.length === 0) return "I'm not sure how to respond to that yet.";
 
-  // Build model once per call (fine for small data).
-  // If this grows, you should build once globally and rebuild only when DATA changes.
-  // const model = buildBigramModel(DATA);
-
   // Seed: pick a likely starter response from this matched conversation.
   const seed = responses[Math.floor(Math.random() * responses.length)];
   const seedTokens = tokenize(seed);
@@ -178,8 +175,6 @@ export function determineResponse(previousMessage, model) {
   let current = seedTokens[0] || weightedChoice(model.startTokens) || "ok";
 
   const out = [current];
-
-  const MAX_TOKENS = 18;
 
   for (let i = 1; i < MAX_TOKENS; i++) {
     const nextMap = model.transitions.get(current);
