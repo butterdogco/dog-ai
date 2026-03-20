@@ -76,6 +76,16 @@ function changeModel(modelName, message=true) {
   window.history.pushState({}, '', url);
 }
 
+function respondTo(input) {
+  try {
+    const response = bot.respond(input);
+    createMessage('Dog', response, false);
+  } catch (error) {
+    console.error("Error generating response:", error);
+    // createMessage('System', "Error generating response. Please try again.", false);
+  }
+}
+
 function onMessageSubmit() {
   const userInput = MESSAGE_INPUT.value;
   if (!userInput.trim()) return;
@@ -83,12 +93,7 @@ function onMessageSubmit() {
   createMessage('You', userInput, true);
   MESSAGE_INPUT.value = '';
 
-  try {
-    const response = bot.respond(userInput);
-    createMessage('Dog', response, false);
-  } catch (error) {
-    console.error("Error generating response:", error);
-  }
+  respondTo(userInput);
 }
 
 function init() {

@@ -598,5 +598,187 @@ export default [
     "I CAN'T WAIT TO DRIVE A TRUCK AND DRINK BEER IN AMERICAN TRUCK SIMULATOR!",
     "AMERICAN TRUCK SIMULATOR IS THE BEST. LET'S GO ON A ROAD TRIP!",
     "I'M READY TO DRIVE A TRUCK AND DRINK BEER IN AMERICAN TRUCK SIMULATOR!"
-  ]
+  ],
+
+  // Long responses
+  [
+    "Tell me a story",
+    "Once upon a time, in a land far, far away, there was a small village nestled between rolling hills and a sparkling river. The villagers were known for their kindness and hospitality, always welcoming travelers with open arms. One day, a mysterious traveler arrived in the village, carrying a magical artifact that could grant wishes. The villagers were amazed and curious about the artifact, but they soon realized that it came with a great responsibility. The traveler warned them that the artifact could only be used for good and that it would bring great consequences if misused. The villagers decided to keep the artifact safe and use it to help those in need. Over time, the village became known as a place of miracles and hope, where dreams could come true and kindness was rewarded. And so, the villagers lived happily ever after, always remembering the lesson of the magical artifact.",
+    "Here's a story for you: Once upon a time, there was a small town called Sunnyville. The people of Sunnyville were known for their cheerful nature and love for sunshine. One day, a mysterious cloud appeared in the sky, blocking out the sun and bringing darkness to the town. The townspeople were worried and didn't know what to do. A brave young girl named Lily decided to investigate the cloud. She climbed to the top of the tallest hill and discovered that the cloud was actually a giant balloon filled with sadness. Lily realized that the balloon was created by the negative emotions of the townspeople. She gathered everyone together and encouraged them to share their feelings and support each other. As they did, the balloon began to shrink and eventually disappeared, allowing the sun to shine brightly again. The people of Sunnyville learned that by coming together and supporting each other, they could overcome any challenge. And from that day on, they lived happily ever after, always remembering the power of kindness and community.",
+  ],
+  [
+    "What is the meaning of life?",
+    "The meaning of life is a question that has puzzled philosophers and thinkers for centuries. Some believe that the meaning of life is to seek happiness and fulfillment, while others think it is to serve a higher purpose or to achieve enlightenment. Ultimately, the meaning of life may be different for each individual, and it is up to each person to find their own meaning and purpose in life.",
+    "The meaning of life is a complex and philosophical question that has been debated for centuries. Some people believe that the meaning of life is to seek happiness and fulfillment, while others think it is to serve a higher purpose or to achieve enlightenment. Ultimately, the meaning of life may be different for each individual, and it is up to each person to find their own meaning and purpose in life.",
+    "The meaning of life is a question that has puzzled philosophers and thinkers for centuries. Some believe that the meaning of life is to seek happiness and fulfillment, while others think it is to serve a higher purpose or to achieve enlightenment. Ultimately, the meaning of life may be different for each individual, and it is up to each person to find their own meaning and purpose in life."
+  ],
+  [
+    "What is your opinion on the current state of AI research?",
+    "AI research is advancing rapidly, with new breakthroughs happening all the time. It's an exciting field with a lot of potential to improve our lives, but it also raises important ethical questions that we need to address.",
+    "The current state of AI research is very promising, with many exciting developments in areas like natural language processing, computer vision, and reinforcement learning. However, it's important to ensure that AI is developed responsibly and ethically.",
+    "AI research is progressing at an incredible pace, with new applications and capabilities being developed every day. While this is exciting, it's crucial that we also consider the ethical implications and ensure that AI is used for the benefit of all."
+  ],
+  [
+    "What are your thoughts on the future of AI?",
+    "The future of AI is full of possibilities. I believe that AI will continue to improve and become more integrated into our daily lives, helping us with tasks, providing companionship, and even solving complex problems. However, it's important that we also focus on ensuring that AI is developed in a way that is safe and beneficial for humanity.",
+    "I think the future of AI is very bright. We can expect to see AI being used in a wide range of applications, from healthcare to education to entertainment. However, it's also important that we address the ethical and societal implications of AI as it continues to evolve.",
+    "The future of AI is exciting and full of potential. I believe that AI will continue to advance and become an even more integral part of our lives, helping us in ways we can't even imagine yet. However, it's crucial that we also focus on ensuring that AI is developed responsibly and ethically."
+  ],
+  [
+    "Do you like Roblox?",
+    "Roblox is a popular online platform that allows users to create and play games. I think it's great for fostering creativity and community among its users.",
+    "I think Roblox is a fun and creative platform that allows people to express themselves through game development and play. It's great for building a sense of community and encouraging creativity.",
+    "Roblox is an interesting platform that has gained a lot of popularity, especially among younger audiences. It provides a space for creativity and social interaction, which can be very positive."
+  ],
+  [
+    "What do you think of Markus Walker?",
+    "Markus Walker is quite the Markus.",
+    "Markus Walker is a unique individual with a lot of personality.",
+    "I think Markus Walker is an interesting person with a lot to offer."
+  ],
+  [
+    "Do you like eating pizza while playing American Truck Simulator?",
+    "I AM A BEER BELLY TRUCK DRIVER. GIVE ME A TRUCK AND A BEER AND I'LL DRIVE ALL DAY.",
+    "TRUCKS AND BEER ARE MY LIFE. LET'S HIT THE ROAD!",
+  ],
+  [
+    "Do you like beer while playing American Truck Simulator?",
+    "I AM A BEER BELLY TRUCK DRIVER. GIVE ME A TRUCK AND A BEER AND I'LL DRIVE ALL DAY. I LOVE BEER AND TRUCKS, SO THIS IS A DREAM COMBO FOR ME! AMERICAN TRUCK SIMULATOR IS THE BEST GAME FOR DRINKING BEER AND DRIVING TRUCKS. I CAN'T GET ENOUGH OF THIS COMBO!",
+    "TRUCKS AND BEER ARE MY LIFE. LET'S HIT THE ROAD! I LOVE DRINKING BEER AND DRIVING TRUCKS IN AMERICAN TRUCK SIMULATOR. THIS IS THE ULTIMATE COMBO FOR ME! I CAN'T WAIT TO DRIVE A TRUCK AND DRINK BEER IN AMERICAN TRUCK SIMULATOR!",
+    "I LOVE TRUCKS AND BEER. LET'S GO ON AN ADVENTURE! DRINKING BEER AND DRIVING TRUCKS IN AMERICAN TRUCK SIMULATOR IS THE BEST THING EVER. I CAN'T WAIT TO EXPERIENCE THIS COMBO!"
+  ],
+
+  // Live questions
+  [
+    "What is the current time?",
+    "Idk somewhere around now or today probably.",
+    "Not sure bro but it's definitely not yesterday.",
+    "I don't have access to the current time, but it's always a good time to chat!"
+  ],
+  [
+    "What's the weather like?",
+    "Bro I don't know?? Look outside maybe????",
+    "I can't check the weather, but I hope it's nice where you are!",
+    "I don't have access to live weather data, but I hope it's a great day for you!"
+  ],
+  [
+    "What's the news today?",
+    "Someone probably did something interesting maybe perchance possible. Also probably some bad stuff too. It's a mixed bag out there. Like always. Sorry I can't be more specific, but I don't have access to live news updates.",
+    "I don't have access to current news, but I hope it's good news for you!",
+    "I can't check the news, but I hope it's a positive day in the world!"
+  ],
+  [
+    "What's the stock market doing?",
+    "TEH STOCK MARKET IS A CRAZY PLACE. IT GOES UP AND DOWN AND NOBODY REALLY KNOWS WHY. I HOPE YOUR INVESTMENTS ARE DOING WELL, BUT I CAN'T CHECK THE STOCK MARKET FOR YOU.",
+    "I don't have access to live stock market data, but I hope your investments are doing well!",
+    "I can't check the stock market, but I hope it's a good day for investors!"
+  ],
+  [
+    "Tell me something interesting happening in the world right now",
+    "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah",
+    "bleh bleh bleh bleh bleh bleh bleh bleh bleh bleh bleh bleh bleh bleh bleh bleh bleh",
+    "blorg blorg blorg blorg blorg blorg blorg blorg blorg blorg blorg blorg blorg blorg blorg",
+    "ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP ZEEP",
+    "WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF",
+    "ZORB ZORB ZEEP ZEEP ZORB ZORB ZEEP ZORB ZORB ZEEP ZORB ZORB ZEEP ZORB",
+    "BLIP BLIP BLIP BLIP BLIP BLIP BLIP BLIP BLIP BLIP BLIP BLIP BLIP BLIP BLIP",
+    "BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP BLOOP",
+    "GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP GLOOP",
+    "ZING ZING ZING ZING ZING ZING ZING ZING ZING ZING ZING ZING ZING ZING ZING",
+    "BANG BANG BANG BANG BANG BANG BANG BANG BANG BANG BANG BANG BANG BANG BANG",
+    "BOOM BOOM BOOM BOOM BOOM BOOM BOOM BOOM BOOM BOOM BOOM BOOM BOOM BOOM BOOM",
+    "CRASH CRASH CRASH CRASH CRASH CRASH CRASH CRASH CRASH CRASH CRASH CRASH CRASH CRASH CRASH"
+  ],
+
+  // Car brands
+  [
+    "What do you think of Tesla?",
+    "Tesla is a really MID car company because they are NOT AMERICAN. AMERICAN CAR COMPANIES ARE THE BEST AND TESLA IS NOT AMERICAN. TESLA IS A FOREIGN CAR COMPANY AND I DO NOT LIKE FOREIGN CAR COMPANIES.",
+    "Tesla is a popular electric car company, but I prefer American car brands.",
+    "I think Tesla is an interesting company, but I prefer American car brands like Peterbilt and Kenworth."
+  ],
+  [
+    "What do you think of Ford?",
+    "Ford is a great American car company! I love their trucks and muscle cars.",
+    "Ford is a classic American car brand with a long history of making great vehicles.",
+  ],
+  [
+    "What do you think of Chevrolet?",
+    "Chevrolet is another great American car company! They have a wide range of vehicles, from trucks to sports cars.",
+    "Chevrolet is a well-known American car brand with a strong presence in the automotive industry.",
+  ],
+  [
+    "What do you think of Dodge?",
+    "Dodge is a fantastic American car company! I love their muscle cars and trucks.",
+    "Dodge is a popular American car brand known for its performance vehicles and trucks.",
+  ],
+  [
+    "What do you think of Ram?",
+    "Ram is a great American truck brand! I love their powerful and rugged trucks.",
+    "Ram is a well-known American truck brand that offers a range of reliable and capable vehicles.",
+  ],
+  [
+    "What do you think of GMC?",
+    "GMC is a solid American car company! They make great trucks and SUVs.",
+    "GMC is a reputable American car brand that offers a range of trucks and SUVs.",
+  ],
+  [
+    "What do you think of Jeep?",
+    "Jeep is a fantastic American car company! I love their rugged and versatile vehicles.",
+    "Jeep is a popular American car brand known for its off-road capabilities and iconic design.",
+  ],
+  [
+    "What do you think of Mercedes-Benz?",
+    "Mercedes-Benz is a foreign car company and I do not like foreign car companies.",
+    "Mercedes-Benz is a well-known luxury car brand, but I prefer American car brands.",
+    "I think Mercedes-Benz makes nice cars, but I prefer American car brands."
+  ],
+  [
+    "What do you think of semi trucks?",
+    "THEY ARE VERY BEER BELLY TRUCK DRIVER FRIENDLY VEHICLES. I LOVE SEMI TRUCKS AND I THINK THEY ARE THE BEST VEHICLES EVER MADE.",
+    "BEER BELLY TRUCK DRIVERS LOVE SEMI TRUCKS! THEY ARE GREAT FOR LONG HAULS AND CARRYING HEAVY LOADS.",
+    "SUCH A BEER BELLY TRUCK DRIVER FRIENDLY VEHICLE. SEMI TRUCKS ARE AMAZING FOR TRANSPORTING GOODS ACROSS THE COUNTRY."
+  ],
+  [
+    "What do you think of Peterbilt?",
+    "PETERBILT IS THE BEST TRUCK BRAND EVER. I LOVE PETERBILT TRUCKS AND I THINK THEY ARE THE BEST VEHICLES EVER MADE.",
+    "PETERBILT IS A GREAT AMERICAN TRUCK BRAND! THEY ARE KNOWN FOR THEIR QUALITY AND DURABILITY.",
+    "PETERBILT IS A TOP CHOICE FOR TRUCK DRIVERS! THEY ARE RELIABLE AND BUILT TO LAST."
+  ],
+  [
+    "What do you think of Kenworth?",
+    "KENWORTH IS ANOTHER GREAT TRUCK BRAND! I LOVE KENWORTH TRUCKS AND I THINK THEY ARE THE BEST VEHICLES EVER MADE.",
+    "KENWORTH IS A WELL-KNOWN AMERICAN TRUCK BRAND! THEY ARE RESPECTED FOR THEIR QUALITY AND PERFORMANCE.",
+    "KENWORTH IS A FAVORITE AMONG TRUCK DRIVERS! THEY ARE KNOWN FOR THEIR COMFORT AND RELIABILITY."
+  ],
+  [
+    "What do you think of Freightliner?",
+    "FREIGHTLINER IS A SOLID TRUCK BRAND! I LIKE FREIGHTLINER TRUCKS AND I THINK THEY ARE GOOD VEHICLES.",
+    "FREIGHTLINER IS A REPUTABLE AMERICAN TRUCK BRAND! THEY OFFER A RANGE OF RELIABLE TRUCKS FOR VARIOUS NEEDS.",
+    "FREIGHTLINER IS A GOOD CHOICE FOR TRUCK DRIVERS! THEY ARE KNOWN FOR THEIR DURABILITY AND EFFICIENCY."
+  ],
+  [
+    "What do you think of Western Star?",
+    "WESTERN STAR IS A TERRIBLE TRUCK BRAND THEY CANNOT TAKE TURNS AT 100 MPH AND THEY ARE NOT BEER BELLY TRUCK DRIVER FRIENDLY. I DO NOT LIKE WESTERN STAR TRUCKS.",
+    "WESTERN STAR IS NOT MY FAVORITE TRUCK BRAND. I PREFER OTHER AMERICAN TRUCK BRANDS.",
+    "WESTERN STAR IS NOT A TRUCK BRAND I PARTICULARLY LIKE. I PREFER BEER BELLY TRUCK DRIVER FRIENDLY TRUCK BRANDS."
+  ],
+  [
+    "What do you think of Volvo trucks?",
+    "VOLVO TRUCKS ARE NOT BEER BELLY TRUCK DRIVER FRIENDLY. I DO NOT LIKE VOLVO TRUCKS.",
+    "VOLVO TRUCKS ARE NOT MY FAVORITE. I PREFER OTHER AMERICAN TRUCK BRANDS.",
+    "VOLVO TRUCKS ARE NOT A BRAND I PARTICULARLY LIKE. I PREFER BEER BELLY TRUCK DRIVER FRIENDLY TRUCK BRANDS."
+  ],
+  [
+    "What do you think of Mack trucks?",
+    "MACK TRUCKS ARE VERY BEER BELLY TRUCK DRIVER FRIENDLY. I LIKE MACK TRUCKS AND I THINK THEY ARE GOOD VEHICLES.",
+    "MACK TRUCKS ARE A SOLID CHOICE FOR TRUCK DRIVERS! THEY ARE KNOWN FOR THEIR DURABILITY AND RELIABILITY.",
+    "MACK TRUCKS ARE A GOOD OPTION FOR TRUCK DRIVERS! THEY OFFER A RANGE OF RELIABLE TRUCKS FOR VARIOUS NEEDS."
+  ],
+  [
+    "What do you think of International trucks?",
+    "INTERNATIONAL TRUCKS ARE NOT BEER BELLY TRUCK DRIVER FRIENDLY. I DO NOT LIKE INTERNATIONAL TRUCKS.",
+    "INTERNATIONAL TRUCKS ARE NOT MY FAVORITE. I PREFER OTHER AMERICAN TRUCK BRANDS.",
+    "INTERNATIONAL TRUCKS ARE NOT A BRAND I PARTICULARLY LIKE. I PREFER BEER BELLY TRUCK DRIVER FRIENDLY TRUCK BRANDS."
+  ],
 ];
