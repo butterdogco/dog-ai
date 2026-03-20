@@ -1,6 +1,6 @@
 import DATA from "../data/basic.js";
 
-const THRESHOLD = 0.5;
+// const THRESHOLD = 0.5;
 const MAX_TOKENS = 50;
 
 function normalize(text) {
@@ -160,8 +160,11 @@ export function determineResponse(previousMessage, model) {
   }
 
   // If we don't understand the user, don't try to "hallucinate" from tiny data.
-  if (!best.convo || best.score < THRESHOLD) {
-    // return "I'm not sure how to respond to that yet.";
+  if (!best.convo) {
+    // Pick a random prompt and one of its responses as a fallback.
+    const fallback = DATA[Math.floor(Math.random() * DATA.length)];
+    const response = fallback[Math.floor(Math.random() * (fallback.length - 1)) + 1];
+    return response || "I'm not sure how to respond to that yet.";
   }
 
   const responses = best.convo.slice(1);
@@ -196,9 +199,9 @@ export function determineResponse(previousMessage, model) {
   if (result.length && !/[.!?]$/.test(result)) result += ".";
 
   // If the generated output is junk, fall back to a real known response for that prompt.
-  if (isGibberish(result)) {
+  // if (isGibberish(result)) {
     // return responses[Math.floor(Math.random() * responses.length)];
-  }
+  // }
 
   return result;
 }
