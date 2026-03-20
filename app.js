@@ -25,7 +25,7 @@ const STARTING_MESSAGES = [
 let bot;
 let currentMessageIndex = 0;
 
-function createMessage(sender, content, self) {
+function createMessage(sender, content, self, saved=false) {
   currentMessageIndex++;
   const messageIndex = currentMessageIndex; // capture the current index for this message
 
@@ -38,7 +38,7 @@ function createMessage(sender, content, self) {
 
   const contentSpan = document.createElement('span');
   contentSpan.classList.add('content');
-  if (self) {
+  if (self || saved || sender === 'System') {
     contentSpan.textContent = content;
   } else {
     // For "other" messages, we can add a typing effect.
@@ -61,6 +61,16 @@ function createMessage(sender, content, self) {
   if (MESSAGE_CONTAINER.scrollHeight - MESSAGE_CONTAINER.scrollTop - MESSAGE_CONTAINER.clientHeight < 80) {
     MESSAGE_CONTAINER.scrollTop = MESSAGE_CONTAINER.scrollHeight;
   }
+
+  // Save message to local storage
+  // Don't save system messages or already saved messages to avoid duplicates on reload
+  if (sender === 'System' || saved) {
+    return;
+  }
+  
+  const messages = JSON.parse(localStorage.getItem('dog-ai-messages') || '[]');
+  messages.push({ sender, content, self });
+  localStorage.setItem('dog-ai-messages', JSON.stringify(messages));
 }
 
 function changeModel(modelName, message=true) {
@@ -98,7 +108,7 @@ function onMessageSubmit() {
 
 function init() {
   const startingMessage = STARTING_MESSAGES[Math.floor(Math.random() * STARTING_MESSAGES.length)];
-  createMessage('Dog', startingMessage, false);
+  createMessage('System', startingMessage, false);
 
   // Detect a model from the URL query parameter, e.g. ?model=Mid
   const urlParams = new URLSearchParams(window.location.search);
@@ -112,6 +122,12 @@ function init() {
     MODEL_SELECT.value = defaultModel;
     changeModel(defaultModel, false);
   }
+
+  // Load messages from local storage
+  const messages = JSON.parse(localStorage.getItem('dog-ai-messages') || '[]');
+  messages.forEach(({ sender, content, self }) => {
+    createMessage(sender, content, self, true);
+  });
 }
 
 // Init models selection dropdown
