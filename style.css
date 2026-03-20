@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --bg-color: #c0c0c0;
+  --bg-color-secondary: #f0f0f0;
+  --text-color: #333;
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --border-color: #ccc;
+  --font-size: 16px;
+  --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-large: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: var(--font-size);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: sticky;
+  padding: 8px;
+  border-bottom: 2px solid var(--border-color);
+  background-color: var(--bg-color-secondary);
+
+  h1 {
+    margin: 0;
+  }
+
+  .model-selection {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    label {
+      font-size: 14px;
+    }
+
+    select {
+      padding: 4px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-family: inherit;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+main {
+  height: 100%;
+  overflow: hidden;
+  flex-grow: 1;
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 100%;
+    gap: 8px;
+    padding: 8px;
+
+    .message {
+      display: flex;
+      flex-direction: column;
+      background-color: var(--bg-color-secondary);
+      border-radius: 8px;
+      width: max-content;
+      max-width: 80%;
+      min-width: 100px;
+      padding: 4px;
+      box-shadow: var(--shadow-small);
+
+      .sender {
+        font-style: italic;
+        font-size: 12px;
+      }
+
+      &.self {
+        align-self: flex-end;
+        align-items: flex-end;
+      }
+
+      &.other {
+        animation: messageTyping 0.5s ease-out;
+      }
+    }
+  }
+}
+
+footer {
+  display: flex;
+  padding: 8px;
+  border-top: 2px solid var(--border-color);
+  background-color: var(--bg-color-secondary);
+
+  form {
+    display: flex;
+    flex-grow: 1;
+
+    input {
+      padding: 4px;
+      border-radius: 4px;
+      flex-grow: 1;
+      font-size: 16px;
+      font-family: inherit;
+      border: 1px solid var(--border-color);
+    }
+  }
+}

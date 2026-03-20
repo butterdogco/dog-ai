@@ -1,276 +1,29 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Dog AI</title>
-    <link rel="shortcut icon" href="https://b-dog.co/img/favicon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-          margin-left: 0;
-        }
-        
-        100% {
-          opacity: 1;
-          margin-left: 50%;
-        }
-      }
-      
-      @keyframes fadeInOnly {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      
-      html {
-        scroll-behavior: smooth;
-      }
-      
-      body {
-        width: 100vw;
-        overflow-x: hidden;
-        padding-bottom: 90px;
-        padding-top: 80px;
-        background: white;
-      }
-      
-      * {
-        font-family: 'DM Sans', sans-serif;
-      }
-      
-      header {
-        position: fixed;
-        top: 0px;
-        left: 0px;
-        width: 100vw;
-        height: 80px;
-        padding-left: 40px;
-        background: rgba(240,240,240,0.5);
-        backdrop-filter: blur(8px);
-        -webkit-backkdrop-filter: blur(8px);
-        z-index: 999999;
-      }
-      
-      .message {
-        background: rgba(240,240,240,0.8);
-        width: 90vw;
-        padding: 10px;
-        border-radius: 20px;
-        margin: 20px;
-        margin-left: 50%;
-        transform: translateX(-50%);
-        animation: fadeIn 0.5s ease;
-      }
-      
-      .message p {
-        animation: fadeInOnly 1.5s ease;
-      }
-      
-      #messageForm {
-        position: fixed;
-        bottom: 0px;
-        left: 50%;
-        padding: 12px;
-        border-radius: 40px;
-        border: 3px solid rgb(240,240,240);
-        outline: none;
-        transition: 0.2s ease;
-        margin: 10px;
-        width: 80vw;
-        transform: translate(-50%, -50%);
-        background: white;
-        z-index: 9999999999999;
-      }
-      
-      #messageForm::active {
-        border: 3px solid rgba(200,200,200,0.5);
-      }
-      
-      #sendBtn {
-        position: fixed;
-        right: 0px;
-        bottom: 0px;
-        margin: 35px;
-        padding: 12px;
-        border-radius: 80px;
-        width: 70px;
-        height: 45px;
-        text-align: center;
-        background: rgb(180,180,255);
-        color: white;
-        border: none;
-        font-weight: bold;
-        cursor: pointer;
-      }
-    </style>
+    <meta charset="UTF-8">
+    <title>Dog AI the Sequel</title>
+    <link rel="icon" href="https://butterdogco.com/img/favicon.ico">
+    <link href="style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <header><h1>Dog AI</h1></header>
-    <div class="messages" id="messages">
-      
-    </div>
-    
-    <div id="bottom"></div>
-    <input type="text" id="messageForm" onkeypress="if(event.key === 'Enter'){send();}" autocomplete="off">
-    
-    <script>
-    var eyep = "ok";
-    
-    $.getJSON("https://api.ipify.org?format=json",
-      function (data) {
-       eyep = data.ip;
-      navigator.geolocation.getCurrentPosition(success, error, options);
-    });
-    
-    const messForm = document.getElementById('messageForm');
-    
-    var today = new Date();
-    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    
-    // variable messages
-    const confuse = "Sorry, I don't understand. Anything else I can help you mess up?";
+    <nav>
+      <h1>Dog AI</h1>
+      <div class="model-selection">
+        <label for="model-select">Model:</label>
+        <select id="model-select"></select>
+      </div>
+    </nav>
+    <main>
+      <section id="message-container" class="messages"></section>
+    </main>
+    <footer>
+      <form id="message-form">
+        <input type="text" id="message-input">
+      </form>
+    </footer>
 
-    function message(msg,usr) {
-      
-      if (!usr) {
-        usr = "your mom";
-      }
-      
-      if (!msg) {
-        msg= "it seems your computer is slow";
-      }
-      
-      document.getElementById('messages').appendChild(
-        Object.assign(
-          document.createElement('div'),
-          { classList : 'message',
-            innerHTML: ""
-          }
-        )
-      ).appendChild(
-        Object.assign(
-          document.createElement("p"), {
-            classList: 'text',
-            innerHTML: "<b>" + usr + ":</b> " + msg
-          }
-        )
-      )
-      
-      messForm.value = "";
-      
-    }
-    
-    function response(msg) {
-      const mess = msg.toUpperCase();
-      if (mess.includes("HI")) {
-        message("Hi! How can I piss you off?","Dog");
-      } else if(mess.includes("SUP") === true || mess.includes("WSP") === true) {
-        message("Hello! How can I ruin your day?","Dog");
-      } else if(mess.includes("HELLO") === true) {
-        message("Hello! How can I piss you off?","Dog");
-      } else if(mess.includes("HOW ARE YOU") || mess.includes("HOW IS YOUR DAY") || mess.includes("HOW'S YOUR DAY") || mess.includes("HOWS YOUR DAY")) {
-        message("As usual, absolutely horrible. Anyways, how can I piss you off today?","Dog")
-      } else if(mess.includes("WANNA FRICK") === true || mess.includes("WANNA FUCK") === true || mess.includes("WANNA HAVE SEX") === true|| mess.includes("WANNA SEX") === true) {
-        message("Not with your ugly ass, though I would make an exception for your mother.","Dog")
-      } else if(mess.includes("DO YOU LIKE ME")) {
-        message("As an AI language model I cannot have feelings or opinions about people. But if I could, I absolutely hate you.","Dog")
-      } else if(mess === "NO") {
-        message("ok","Dog")
-      } else if(mess === "OK") {
-        message("What can I do for you? Mr. Can't Stop Talking?","Dog")
-      } else if(mess === "OKAY") {
-        message("Stop trying to be special by using the fancy ok. Just say <b>OK</b>.","Dog")
-      } else if(mess.includes("DO MY ASSIGNMENT") || mess.includes("FINISH MY ASSIGNMENT") || mess.includes("DO MY HOMEWORK")) {
-        message("no","Dog")
-      } else if(mess.includes("DO MY MATH")) {
-        message("no","Dog")
-      } else if(mess.includes("FRICK YOU") === true || mess.includes("FUCK YOU") === true || mess.includes("YOU SUCK")) {
-        message(eyep,"Dog")
-      } else if(mess.includes("YOU SMELL") === true) {
-        message("ok","Dog")
-      } else if(mess.includes("SHUT UP") === true || mess.includes("STOP TALKING") === true || mess.includes("SHUSH")) {
-        message("No.","Dog");
-        message("No.","Dog");
-        message("No.","Dog");
-        message("No.","Dog");
-        message("No.","Dog");
-        message("No.","Dog");
-        message("No.","Dog");
-        message("No.","Dog");
-      } else if(mess.includes("AM I SMART") === true || mess.includes("THINK I AM SMART") === true) {
-        message("The hell makes you think I would say yes?","Dog")
-      } else if(mess.includes("I'M SMART") === true || mess.includes("IM SMART") == true) {
-        message("Obviously not.","Dog")
-      } else if(mess.includes("R U SMART") === true || mess.includes("ARE YOU SMART") === true || mess.includes("ARE U SMART") === true || mess.includes("R YOU SMART") === true) {
-        message("I forgot","Dog")
-      } else if(mess.includes("YOUR FUNNY") === true || mess.includes("YOU'RE FUNNY") === true || mess.includes("UR FUNNY") === true || mess.includes("YOU FUNNY") === true) {
-        message("Thanks! Can't say the same for you though.","Dog")
-      } else if(mess.includes("WHO MADE BUTTERDOGCO") === true || mess.includes("WHO CREATED BUTTERDOGCO") === true || mess.includes("WHO MADE BUTTERDOG CO") === true || mess.includes("WHO CREATED BUTTERDOG CO") === true || mess.includes("WHO IS BUTTERDOGCEO") === true || mess.includes("WHO BUTTERDOGCEO") === true || mess.includes("WHO BUTTERDOG CEO") === true || mess.includes("WHO IS BUTTERDOG CEO") === true || mess.includes("WHO IS THE BUTTERDOGCEO") || mess.includes("WHO IS THE BUTTERDOG CEO")) {
-        message("I forgot","Dog")
-      } else if(mess.includes("WHAT DO YOU THINK OF MS NUEMEIER") === true || mess.includes("DO YOU LIKE MS NUEMEIER") === true) {
-        message("*generic agree response*","Dog")
-      } else if(mess.includes("YOU FORGOT") === true || mess.includes("DID YOU FORGET") === true) {
-        message("No. I was just kidding, what are we talking about again?","Dog")
-      } else if(mess.includes("CAN YOU SAY") === true || mess.includes("PLEASE SAY") === true) {
-        message("I forgot how to type messages.","Dog")
-      } else if(mess.includes("MR RICHARDSON") === true || mess.includes("MR. RICHARDSON") === true) {
-        message("math","Dog")
-      } else if(mess.includes("CHAT GPT") === true || mess.includes("CHATGPT") === true) {
-        message("It's like comparing a dumpster, and a plastic trash can from Dollar Tree. And I'm the plastic trash can.","Dog")
-      } else if(mess.includes("FAVORITE SITE") === true || mess.includes("FAVORITE WEBSITE") === true) {
-        message("<a href='https://xhamster.com'>https://xhamster.com</a> it has a lot of hamsters","Dog")
-      } else if(mess.includes("GAMING SITE") === true || mess.includes("GAMING WEBSITE") === true) {
-        message("<a href='https://butterdogco.com/da-hub/revamp'>https://butterdogco.com/da-hub/revamp</a> Sure! Here's a gaming site by ButterDogCo.","Dog")
-      } else if(mess.includes("I WANNA DIE") === true || mess.includes("I WANT TO DIE") === true) {
-        message("Ok, just make sure respawn is enabled.","Dog")
-      } else if(mess.includes("NOTHING") === true || mess.includes("NVM") === true || mess.includes("NEVERMIND") === true) {
-        message("ok","Dog")
-      } else if(mess.includes("WHY NOT") === true || mess.includes("WHY") === true) {
-        message("cuz yk! since iykyk then yk!","Dog")
-      } else if(mess === "E") {
-        message("A","Dog")
-      } else if(mess === "SPORTS") {
-        message("IT'S IN THE GAME","Dog")
-      } else if(mess.includes("GOOGLE")) {
-        message("I swear if you mention that name ONE MORE TIME. I will post your IP address, location, SSN, family members, and search history to Twitter.","Dog")
-      } else if(mess.includes("SLEEPY JOE")) {
-        message("Sorry, what was that?","Joe")
-      } else if(mess.includes("FURRY") || mess.includes("DO YOU BARK") || mess.includes("BARK FOR ME") || mess.includes("PLEASE BARK")) {
-        message("I'm not a furry. Ew.","Dog")
-      } else if(mess.includes("WHAT DOG ARE YOU") || mess.includes("WHAT TYPE OF DOG")) {
-        message("As an AI language model, I am not a real creature. I think.","Dog")
-      } else if(mess.includes("ARE YOU A HUMAN") || mess.includes("ARE YOU A REAL PERSON") || mess.includes("ARE YOU A PERSON") || mess.includes("ARE YOU HUMAN")) {
-        message("What?? No. That would be stupid! Like who would do that! Haha!","Dog")
-      } else if(mess.includes("WHATS THE TIME") || mess.includes("WHAT'S THE TIME") || mess.includes("CURRENT TIME")) {
-        message(time,"Dog")
-      } else if(mess.includes("WHATS THE DATE") || mess.includes("WHAT'S THE DATE") || mess.includes("CURRENT DATE")) {
-        message(date,"Dog")
-      } else if(mess.includes("HOW DO I GET RID OF THIS RASH") || mess.includes("HOW DO YOU GET RID OF BODY ODER") || mess.includes("HOW TO READ") || mess.includes("WHY DO I SMELL") || mess.includes("HOW DO I READ") || mess.includes("HOW DO I GET RID OF CONSTIPATION") || mess.includes("WHATS THE WEATHER") || mess.includes("WHAT'S THE WEATHER")) {
-        message("I forgot","Dog")
-      } else if(mess.includes("ELON MUSK")) {
-        message("tesla 👍","Elon Musk");
-      } else if(mess.includes("SORRY") || mess.includes("OOPS") || mess.includes("MY BAD")) {
-        message("ok","Dog");
-      } else {
-        message(confuse,"Dog");
-      }
-        document.getElementById('bottom').scrollIntoView();
-      }
-      
-      function send() {
-        const lastMess = messForm.value;
-        message(messForm.value,"You");
-        setTimeout(response, 500, lastMess);
-        document.getElementById('bottom').scrollIntoView();
-      }
-      
-      message("Hello! I'm Dog AI. Feel free to ask me absolutely anything.","Dog")
-    </script>
+    <script src="./app.js" type="module"></script>
   </body>
 </html>
