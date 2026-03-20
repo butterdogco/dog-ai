@@ -1112,7 +1112,7 @@ export default [
     "What do you think of Tesla?",
     "Tesla is a really MID car company because they are NOT AMERICAN. AMERICAN CAR COMPANIES ARE THE BEST AND TESLA IS NOT AMERICAN. TESLA IS A FOREIGN CAR COMPANY AND I DO NOT LIKE FOREIGN CAR COMPANIES.",
     "Tesla is a popular electric car company, but I prefer American car brands.",
-    "I think Tesla is an interesting company, but I prefer American car brands like Peterbilt and Kenworth."
+    "I think Tesla is an interesting company, but I prefer American car brands like Peterbuilt and Kenworth."
   ],
   [
     "What do you think of Ford?",
@@ -1157,10 +1157,10 @@ export default [
     "SUCH A BEER BELLY TRUCK DRIVER FRIENDLY VEHICLE. SEMI TRUCKS ARE AMAZING FOR TRANSPORTING GOODS ACROSS THE COUNTRY."
   ],
   [
-    "What do you think of Peterbilt?",
-    "PETERBILT IS THE BEST TRUCK BRAND EVER. I LOVE PETERBILT TRUCKS AND I THINK THEY ARE THE BEST VEHICLES EVER MADE.",
-    "PETERBILT IS A GREAT AMERICAN TRUCK BRAND! THEY ARE KNOWN FOR THEIR QUALITY AND DURABILITY.",
-    "PETERBILT IS A TOP CHOICE FOR TRUCK DRIVERS! THEY ARE RELIABLE AND BUILT TO LAST."
+    "What do you think of Peterbuilt?",
+    "PETERBUILT IS THE BEST TRUCK BRAND EVER. I LOVE PETERBUILT TRUCKS AND I THINK THEY ARE THE BEST VEHICLES EVER MADE.",
+    "PETERBUILT IS A GREAT AMERICAN TRUCK BRAND! THEY ARE KNOWN FOR THEIR QUALITY AND DURABILITY.",
+    "PETERBUILT IS A TOP CHOICE FOR TRUCK DRIVERS! THEY ARE RELIABLE AND BUILT TO LAST."
   ],
   [
     "What do you think of Kenworth?",
