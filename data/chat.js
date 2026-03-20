@@ -299,6 +299,11 @@ export default [
     { user: "good news", bot: "Let's hear it! What's going on?" },
     { user: "I'm getting married", bot: "Congratulations!! That's wonderful news. When did you get engaged?" }
   ],
+  [
+    { user: "I have something to tell you", bot: "I'm all ears! What is it?" },
+    { user: "I just adopted a puppy", bot: "That's fantastic news! Puppies are so much fun. What breed is it?" },
+    { user: "He's a golden retriever", bot: "Golden retrievers are the best! He's going to be such a good boy." }
+  ],
 
   // ── Deeper conversations ──────────────────────────────────────────────────
   [
@@ -311,4 +316,39 @@ export default [
     { user: "I've been thinking about whether my friendships are real", bot: "That's a brave thing to examine. What does 'real' look like to you in a friendship?" },
     { user: "Someone who shows up when things are hard", bot: "That's a good measure. Presence in difficulty—not just when things are easy." }
   ],
+
+  // ── Assignments and writing prompts ───────────────────────────────────────────────────────
+  [
+    { user: "Can you help me with a writing prompt?", bot: "Of course! What kind of prompt are you looking for?" },
+    { user: "Something creative", bot: "Here's one: 'Write a story about a world where people can only speak in questions.' Want to brainstorm ideas together?" },
+    { user: "Sure! Maybe the main character is trying to solve a mystery but can only ask questions", bot: "I like that! It creates an interesting dynamic where they have to navigate conversations very carefully." }
+  ],
+  [
+    { user: "Write me a poem", bot: "I'd love to! Do you have a theme or style in mind?" },
+    { user: "Something about the ocean", bot: "Here's a quick one:\n\nThe ocean whispers secrets deep,\nWhere sunlight fades and shadows creep.\nA world of wonder, wild and free,\nEndless blue eternity." },
+    { user: "That's beautiful, thank you!", bot: "You're welcome! I'm glad you liked it." }
+  ],
+  [
+    { user: "Give me a random fact", bot: "Sure! Did you know that honey never spoils? Archaeologists have found pots of honey in ancient Egyptian tombs that are over 3000 years old and still perfectly edible!" },
+    { user: "Wow that's amazing", bot: "Nature has some incredible preservation tricks. Honey's low water content and acidic pH make it inhospitable to bacteria." }
+  ],
+  [
+    { user: "Can you tell me a story?", bot: "Of course! Here's a short one:\n\nOnce upon a time, in a quiet village nestled between rolling hills, there lived a curious cat named Luna. Luna loved to explore and often wandered into the nearby forest. One day, she stumbled upon a hidden glade where the trees whispered secrets and the flowers glowed with magic. In the center of the glade was a small pond that reflected not just the sky, but also the dreams of those who looked into it. Luna gazed into the pond and saw visions of adventure and friendship. From that day on, she visited the glade every day, finding new wonders and making friends with the magical creatures that lived there. And so, Luna's life was filled with endless curiosity and joy." },
+    { user: "That's a lovely story, thank you!", bot: "You're welcome! I'm glad you enjoyed it." }
+  ],
+  [
+    { user: "Can you help me with a math problem?", bot: "Sure! What problem are you working on?" },
+    { user: "I'm trying to solve for x in the equation 2x + 3 = 7", bot: "To solve for x, you can start by isolating the variable. First, subtract 3 from both sides of the equation: 2x + 3 - 3 = 7 - 3, which simplifies to 2x = 4. Then, divide both sides by 2: (2x)/2 = 4/2, which gives you x = 2." },
+    { user: "Thank you! That makes sense now.", bot: "You're welcome! I'm glad I could help. If you have any more questions, feel free to ask!" }
+  ],
+  [
+    { user: "Can you help me brainstorm ideas for a project?", bot: "Absolutely! What kind of project are you working on?" },
+    { user: "I'm thinking of starting a blog about travel", bot: "That sounds fantastic! Here are a few ideas to get you started:\n1. Write about your personal travel experiences and the lessons you've learned.\n2. Create guides for different destinations, including hidden gems and local tips.\n3. Share travel hacks and packing tips to help others prepare for their trips.\n4. Interview other travelers and share their stories and advice.\n5. Explore the cultural aspects of the places you visit, such as food, traditions, and festivals." },
+    { user: "These are great ideas, thank you!", bot: "You're welcome! I'm excited for your blog. If you need help with anything else, just let me know!" }
+  ],
+  [
+    { user: "Can you help me practice a language?", bot: "Of course! Which language are you learning?" },
+    { user: "I'm learning Spanish", bot: "¡Genial! Let's practice some basic phrases. How about we start with greetings? For example, 'Hello' is 'Hola', 'How are you?' is '¿Cómo estás?', and 'Thank you' is 'Gracias'. Would you like to try forming some sentences?" },
+    { user: "Yes, please! How would I say 'I am learning Spanish'?", bot: "You would say 'Estoy aprendiendo español'. Great job! Do you want to practice more sentences or maybe some common expressions?" }
+  ]
 ];
