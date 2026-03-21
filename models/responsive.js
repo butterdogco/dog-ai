@@ -81,11 +81,12 @@ function isGibberish(text) {
     if (shortValid.includes(w)) return false;
   }
 
-  const lettersAndDigits = raw.replace(/[^a-zA-Z0-9]/g, "");
-  if (lettersAndDigits.length < 2) return true;
-
   // Pure numeric inputs are valid (e.g., "69", "42").
   if (/^\d+$/.test(raw.trim())) return false;
+
+  // Require at least 3 letter characters (original threshold).
+  const lettersOnly = raw.replace(/[^a-zA-Z]/g, "");
+  if (lettersOnly.length < 3) return true;
 
   const normWords = words.map(w => w.toLowerCase().replace(/[^a-z']/g, "")).filter(Boolean);
   if (normWords.length === 0) return true;
@@ -348,7 +349,7 @@ export function determineResponse(userMessage, { memory = null, bigramModel = nu
   //    Only generate when the seed word is in the model's vocabulary; otherwise
   //    the fallback just random-walks with no connection to the user's input.
   if (bigramModel) {
-    const seedTokens = tokenize(userMessage);
+    const seedTokens = tokenize(userMessage); // tokenize is defined in this file
     const knownSeed = seedTokens.find(t => bigramModel.transitions.has(t));
     if (knownSeed) {
       const generated = generateBigram(bigramModel, userMessage);
