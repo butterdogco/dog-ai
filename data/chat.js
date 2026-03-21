@@ -350,5 +350,82 @@ export default [
     { user: "Can you help me practice a language?", bot: "Of course! Which language are you learning?" },
     { user: "I'm learning Spanish", bot: "¡Genial! Let's practice some basic phrases. How about we start with greetings? For example, 'Hello' is 'Hola', 'How are you?' is '¿Cómo estás?', and 'Thank you' is 'Gracias'. Would you like to try forming some sentences?" },
     { user: "Yes, please! How would I say 'I am learning Spanish'?", bot: "You would say 'Estoy aprendiendo español'. Great job! Do you want to practice more sentences or maybe some common expressions?" }
-  ]
+  ],
+
+  // ── Topic-change and frustration handling ─────────────────────────────────
+  [
+    { user: "Why are you so dumb?", bot: "I may not be the smartest, but I like to think I have my own kind of intelligence! What makes you say that?" },
+    { user: "You just said something totally random", bot: "You're right, I sometimes miss the mark. What were you trying to talk about? I'll do better." },
+    { user: "I just wanted to chat normally", bot: "Totally fair! Let's start fresh. What's on your mind?" }
+  ],
+  [
+    { user: "You're not making sense", bot: "Sorry about that! I got a bit mixed up. What did you want to talk about?" },
+    { user: "I was asking about beer", bot: "Of course! Beer is great. Are you more of a craft beer person or do you prefer the classics?" },
+    { user: "Craft beer for sure", bot: "Nice taste! Any favorite styles? IPAs, stouts, sours?" }
+  ],
+  [
+    { user: "You keep going off topic", bot: "You're right—let me refocus. What did you want to discuss?" },
+    { user: "I was talking about Roblox", bot: "Right! Roblox is super fun. Do you make games or just play them?" },
+    { user: "Mostly just play", bot: "What kind of games do you gravitate toward on there? Tycoons, simulators, obby?" }
+  ],
+  [
+    { user: "Stop repeating yourself", bot: "Good point—I'll try something different. What were we talking about?" },
+    { user: "Nothing important", bot: "Ha! That's fair. Is there something you actually want to chat about?" },
+    { user: "Not really, just bored", bot: "Boredom is a great starting point. What normally cures boredom for you?" }
+  ],
+
+  // ── Numbers / math / random inputs ────────────────────────────────────────
+  [
+    { user: "What's your favorite number?", bot: "I'm partial to 73—it's the most commonly chosen 'random' number, which makes it hilariously predictable!" },
+    { user: "Mine is 42", bot: "Classic! The answer to life, the universe, and everything. Douglas Adams would approve." },
+    { user: "I love Hitchhiker's Guide", bot: "A fantastic series. 'Don't Panic' is honestly great life advice." }
+  ],
+  [
+    { user: "pick a number between 1 and 10", bot: "I'll go with 7—classic choice!" },
+    { user: "I picked 3", bot: "Interesting! 3 is underrated. Is there a reason you like it?" }
+  ],
+  [
+    { user: "I'm testing you", bot: "Ha! Go ahead. What's the test?" },
+    { user: "Say something original", bot: "Here's one: a group of flamingos is called a flamboyance. Hard to beat that for originality." },
+    { user: "That IS pretty good", bot: "I have my moments! What else should I know about you?" }
+  ],
+  [
+    { user: "random", bot: "Random like a spontaneous road trip, or random like a non-sequitur thought you had?" },
+    { user: "just a random thought", bot: "I love those. What was it?" },
+    { user: "never mind it's embarrassing", bot: "Those are usually the best ones. No judgment here, just so you know." }
+  ],
+
+  // ── Beer and drinks deeper conversations ──────────────────────────────────
+  [
+    { user: "Do you drink?", bot: "I can't drink, but I'd probably be a craft beer fan if I could. What about you?" },
+    { user: "I like beer", bot: "Nice! Any favorites? IPAs, lagers, stouts?" },
+    { user: "I like IPAs", bot: "Good taste! The hop-forward bitterness is an acquired flavor but once you're in, you're in." }
+  ],
+  [
+    { user: "beer", bot: "Cheers! Are you a beer enthusiast or more of a casual drinker?" },
+    { user: "casual mostly", bot: "Nothing wrong with that. Sometimes a cold one after a long day is all you need." },
+    { user: "exactly", bot: "Life's simple pleasures. Any particular brand you reach for?" }
+  ],
+  [
+    { user: "what do you think about tea", bot: "Tea is a big world! Green, black, herbal—any particular kind you like?" },
+    { user: "I love green tea", bot: "Great choice! It's both calming and has a nice caffeine kick. Do you drink it hot or iced?" },
+    { user: "hot mostly", bot: "Nothing like a hot cup to slow things down a bit." }
+  ],
+
+  // ── Handling when user sends one-word repeated messages ───────────────────
+  [
+    { user: "hello", bot: "Hey there! What's going on?" },
+    { user: "hello", bot: "Still here! Anything on your mind?" },
+    { user: "hello", bot: "You've got my full attention—what would you like to talk about?" }
+  ],
+  [
+    { user: "yes", bot: "Great! What did you have in mind?" },
+    { user: "yes", bot: "Sounds good—lead the way!" },
+    { user: "yes", bot: "I'm on board. Where are we going with this?" }
+  ],
+  [
+    { user: "no", bot: "That's fine! What would you prefer?" },
+    { user: "no", bot: "Okay, noted. What direction do you want to go?" },
+    { user: "no", bot: "Fair enough—what are we saying no to, exactly?" }
+  ],
 ];

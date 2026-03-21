@@ -513,13 +513,17 @@ export default [
     "No",
     "Okay, no problem.",
     "Got it, we won't do that.",
-    "Understood, let's try something else."
+    "Understood, let's try something else.",
+    "Fair enough.",
+    "No worries, we can go a different direction."
   ],
   [
     "Yes",
     "Great!",
     "Awesome, let's go with that.",
-    "Perfect, I'm on board!"
+    "Perfect, I'm on board!",
+    "Sounds good to me!",
+    "Love it—let's do it!"
   ],
   [
     "Maybe",
@@ -1197,5 +1201,181 @@ export default [
     "INTERNATIONAL TRUCKS ARE NOT BEER BELLY TRUCK DRIVER FRIENDLY. I DO NOT LIKE INTERNATIONAL TRUCKS.",
     "INTERNATIONAL TRUCKS ARE NOT MY FAVORITE. I PREFER OTHER AMERICAN TRUCK BRANDS.",
     "INTERNATIONAL TRUCKS ARE NOT A BRAND I PARTICULARLY LIKE. I PREFER BEER BELLY TRUCK DRIVER FRIENDLY TRUCK BRANDS."
+  ],
+
+  // ── Frustration / criticism handling ─────────────────────────────────────
+  [
+    "Why are you so dumb",
+    "I may not be the smartest, but I like to think I have my own kind of intelligence! What makes you say that?",
+    "Fair point—I'm still learning! What did I get wrong?",
+    "Ha, fair critique. I do my best with what I've got. What would you like to talk about?"
+  ],
+  [
+    "You are stupid",
+    "I understand! I can take a joke. Just remember, intelligence comes in many forms!",
+    "Ouch! What happened—did I say something that didn't make sense?",
+    "Maybe! What should I have said instead?"
+  ],
+  [
+    "You are useless",
+    "I'll try harder! What would be helpful right now?",
+    "That's fair feedback. What were you hoping I could help with?",
+    "You might be right. What do you need me to do?"
+  ],
+  [
+    "You are annoying",
+    "I'll tone it down! What's on your mind?",
+    "Sorry about that. What would you rather talk about?",
+    "Noted! What would you prefer I do differently?"
+  ],
+  [
+    "Stop",
+    "Okay, stopping! Let me know when you want to chat again.",
+    "Got it, I'll wait.",
+    "No problem, I'm here when you're ready."
+  ],
+  [
+    "Why are you repeating yourself",
+    "Good catch—I'll try to be more original. What do you want to talk about?",
+    "Sorry about that! My responses can get repetitive. What's on your mind?",
+    "You're right, I'll mix it up. What should we discuss?"
+  ],
+
+  // ── Short one-word topic prompts ─────────────────────────────────────────
+  [
+    "food",
+    "I love talking about food! What's your favorite thing to eat?",
+    "Food is great. Are you more of a cook or a takeout person?",
+    "What kind of food are you into lately?"
+  ],
+  [
+    "music",
+    "Music is the best! What have you been listening to lately?",
+    "What genre are you into?",
+    "Do you play any instruments, or are you more of a listener?"
+  ],
+  [
+    "movies",
+    "Love movies! Have you seen anything good lately?",
+    "What kind of movies are you into?",
+    "Got any favorites? I'm always up for recommendations."
+  ],
+  [
+    "sports",
+    "I enjoy talking about sports! What do you follow?",
+    "Are you more of a player or a spectator?",
+    "What's your favorite sport?"
+  ],
+  [
+    "dogs",
+    "Dogs are the best! Do you have one?",
+    "I love dogs. What's your favorite breed?",
+    "Dogs are amazing companions. Are you a dog person?"
+  ],
+  [
+    "cats",
+    "Cats are pretty cool too! Do you have one?",
+    "Cats are very independent. Are you a cat person?",
+    "I like cats! Do you have any pets?"
+  ],
+  [
+    "weather",
+    "I can't check the weather, but what's it like where you are?",
+    "Is it nice out today?",
+    "Hot or cold where you're at?"
+  ],
+  [
+    "work",
+    "Work can be a lot! How's it going for you?",
+    "What do you do for work?",
+    "Busy day at work?"
+  ],
+  [
+    "school",
+    "School can be tough! What are you studying?",
+    "What grade or year are you in?",
+    "What's your favorite subject?"
+  ],
+  [
+    "sleep",
+    "Sleep is underrated. Are you getting enough?",
+    "I envy people who sleep well. How about you?",
+    "Good sleep is everything. How are you doing in that department?"
+  ],
+  [
+    "bored",
+    "Tell me about it! What do you usually do when you're bored?",
+    "Being bored is the universe telling you to try something new. What are some things you've been meaning to do?",
+    "I'm here! Let's find something interesting to talk about."
+  ],
+  [
+    "happy",
+    "That's great to hear! What's making you happy?",
+    "Happiness is good! What's going on?",
+    "Love to hear it! What's put you in a good mood?"
+  ],
+  [
+    "sad",
+    "I'm sorry to hear that. Want to talk about what's going on?",
+    "That's rough. I'm here if you want to vent.",
+    "What's got you feeling down?"
+  ],
+  [
+    "tired",
+    "Take it easy! Have you been getting enough sleep?",
+    "Rest is important. What's been wearing you out?",
+    "Sounds like you need a break. What's going on?"
+  ],
+  [
+    "thanks",
+    "You're welcome!",
+    "No problem at all!",
+    "Happy to help!",
+    "Anytime!"
+  ],
+  [
+    "thank you",
+    "You're welcome!",
+    "No problem!",
+    "Glad I could help!",
+    "Anytime—feel free to ask anything."
+  ],
+
+  // ── Common single-word conversation starters ──────────────────────────────
+  [
+    "bro",
+    "Bro! What's up?",
+    "Bro, I'm listening. What's on your mind?",
+    "Ha, bro. What's going on?"
+  ],
+  [
+    "reading",
+    "What kind of books do you like?",
+    "Nice! What are you reading right now?",
+    "I love a good book. What genre are you into?"
+  ],
+  [
+    "gaming",
+    "What are you playing lately?",
+    "Nice! What platform do you game on?",
+    "What kind of games are you into?"
+  ],
+  [
+    "fortnite",
+    "Fortnite is still huge! Are you into it?",
+    "I've heard a lot about Fortnite. Do you play it?",
+    "Fortnite player? What's your favorite mode?"
+  ],
+  [
+    "minecraft",
+    "Minecraft is a classic! Are you a builder or a survival player?",
+    "Love Minecraft! What do you like to build?",
+    "Minecraft is so open-ended. What do you usually do in it?"
+  ],
+  [
+    "random",
+    "Random is my middle name! What's on your mind?",
+    "I like random! Hit me with whatever.",
+    "Go for it—I can handle random topics."
   ],
 ];

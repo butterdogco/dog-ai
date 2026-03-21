@@ -23,7 +23,7 @@
 import CHAT from "../data/chat.js";
 import DATA from "../data/larger.js";
 
-const CONTEXT_THRESHOLD = 0.12;      // lenient — context provides the signal
+const CONTEXT_THRESHOLD = 0.25;      // requires a meaningful combined score even with context
 const DIRECT_CHAT_THRESHOLD = 0.55;  // strict — no context, avoid false positives
 const PROMPT_THRESHOLD = 0.2;
 const QA_TOPIC_CHANGE_THRESHOLD = 0.75; // strong Q&A hit → user changed topic
@@ -69,13 +69,24 @@ function isGibberish(text) {
   if (raw.length === 0) return true;
 
   const words = raw.split(/\s+/).filter(Boolean);
+
+  // Whitelist short but valid single-word responses before any length checks.
+  if (words.length === 1) {
+    const w = words[0].toLowerCase().replace(/[^a-z]/g, "");
+    const shortValid = [
+      "ok", "okay", "yes", "no", "hi", "hey", "thanks", "sure",
+      "wow", "cool", "nice", "haha", "lol", "yeah", "yep", "nope",
+      "bye", "hmm", "oh", "bruh", "lmao", "omg", "ugh",
+    ];
+    if (shortValid.includes(w)) return false;
+  }
+
+  // Pure numeric inputs are valid (e.g., "69", "42").
+  if (/^\d+$/.test(raw.trim())) return false;
+
+  // Require at least 3 letter characters (original threshold).
   const lettersOnly = raw.replace(/[^a-zA-Z]/g, "");
   if (lettersOnly.length < 3) return true;
-
-  if (words.length === 1) {
-    const w = words[0].toLowerCase();
-    if (["ok", "okay", "yes", "no", "hi", "hey", "thanks", "sure"].includes(w)) return false;
-  }
 
   const normWords = words.map(w => w.toLowerCase().replace(/[^a-z']/g, "")).filter(Boolean);
   if (normWords.length === 0) return true;
@@ -229,36 +240,42 @@ export function createMemory({ maxTurns = 10 } = {}) {
  * accidentally match "what is your favorite number" in the training data.
  */
 function findContextualResponse(userMessage, lastBotMessage, recentBotResponses) {
-  let best = { score: -Infinity, response: null };
+  let bestCtx    = { score: -Infinity, response: null }; // i > 0 turns using context
+  let bestDirect = { score: -Infinity, response: null }; // i == 0 turns (direct only)
 
   for (const convo of CHAT) {
     for (let i = 0; i < convo.length; i++) {
       const turn = convo[i];
       const userScore = similarity(userMessage, turn.user);
 
-      let score;
       if (lastBotMessage && i > 0) {
+        // Skip turns where the user message has zero word overlap — the context
+        // signal alone is not enough to justify returning an unrelated response.
+        if (userScore === 0) continue;
         const contextScore = similarity(lastBotMessage, convo[i - 1].bot);
         // Weight both dimensions equally so either a strong user match or a
         // strong context match can drive the selection.
-        score = USER_SCORE_WEIGHT * userScore + CONTEXT_SCORE_WEIGHT * contextScore;
-      } else {
-        score = userScore;
-      }
+        const score = USER_SCORE_WEIGHT * userScore + CONTEXT_SCORE_WEIGHT * contextScore;
 
-      if (score > best.score) {
-        const alreadySaid = recentBotResponses.some(r => similarity(turn.bot, r) > REPETITION_THRESHOLD);
-        if (!alreadySaid) {
-          best = { score, response: turn.bot };
+        if (score > bestCtx.score) {
+          const alreadySaid = recentBotResponses.some(r => similarity(turn.bot, r) > REPETITION_THRESHOLD);
+          if (!alreadySaid) bestCtx = { score, response: turn.bot };
+        }
+      } else {
+        // First turn in a conversation — no context boost; use strict threshold.
+        if (userScore > bestDirect.score) {
+          const alreadySaid = recentBotResponses.some(r => similarity(turn.bot, r) > REPETITION_THRESHOLD);
+          if (!alreadySaid) bestDirect = { score: userScore, response: turn.bot };
         }
       }
     }
   }
 
-  // Use a lenient threshold when context is available (the previous bot message
-  // narrows the search space), but a stricter one for context-free matching.
-  const threshold = lastBotMessage ? CONTEXT_THRESHOLD : DIRECT_CHAT_THRESHOLD;
-  return best.score > threshold ? best.response : null;
+  // Prefer a context-boosted match if it clears the lenient threshold, otherwise
+  // fall back to a direct match only if it clears the strict threshold.
+  if (bestCtx.score > CONTEXT_THRESHOLD) return bestCtx.response;
+  if (bestDirect.score > DIRECT_CHAT_THRESHOLD) return bestDirect.response;
+  return null;
 }
 
 // ── Q&A prompt matching ───────────────────────────────────────────────────────
@@ -283,21 +300,34 @@ function findBestQAMatch(userMessage, recentBotResponses) {
 
   const responses = best.convo.slice(1).filter(r => typeof r === "string" && !isGibberish(r));
 
-  // Prefer a response that hasn't been said recently.
-  for (const r of responses) {
-    const alreadySaid = recentBotResponses.some(prev => similarity(r, prev) > REPETITION_THRESHOLD);
-    if (!alreadySaid) return { score: best.score, response: r };
-  }
-
-  const r = responses[Math.floor(Math.random() * responses.length)] ?? null;
-  return { score: best.score, response: r };
+  // Prefer a response that hasn't been said recently, chosen at random for variety.
+  const unusedResponses = responses.filter(
+    r => !recentBotResponses.some(prev => similarity(r, prev) > REPETITION_THRESHOLD)
+  );
+  const pool = unusedResponses.length ? unusedResponses : responses;
+  return { score: best.score, response: pool[Math.floor(Math.random() * pool.length)] ?? null };
 }
 
 // ── Main response function ────────────────────────────────────────────────────
 
 export function determineResponse(userMessage, { memory = null, bigramModel = null } = {}) {
   const lastBotMessage = memory ? memory.getLastBotMessage() : null;
-  const recentBotResponses = memory ? memory.getRecentBotResponses(3) : [];
+  const recentBotResponses = memory ? memory.getRecentBotResponses(5) : [];
+
+  // Short-circuit on gibberish / nonsense user input before any expensive matching.
+  if (isGibberish(userMessage)) {
+    const gibberishFallbacks = [
+      "That's quite a message! Want to try again in plain words?",
+      "I'm not sure I follow that. Could you rephrase?",
+      "Hmm, that one's hard to parse. What were you trying to say?",
+      "Could you say that again? I'm having trouble following.",
+    ];
+    const unused = gibberishFallbacks.filter(
+      f => !recentBotResponses.some(r => similarity(f, r) > FALLBACK_REPETITION_THRESHOLD)
+    );
+    const pool = unused.length ? unused : gibberishFallbacks;
+    return pool[Math.floor(Math.random() * pool.length)];
+  }
 
   // Always compute the Q&A score first.  A very strong Q&A hit (≥ 0.75) means
   // the user has asked something the Q&A dataset handles well and has likely
@@ -313,12 +343,18 @@ export function determineResponse(userMessage, { memory = null, bigramModel = nu
   // 2. Q&A prompt matching from the larger dataset (lower-confidence cases).
   if (qa.response) return qa.response;
 
-  // 3. Generative fallback: seed the bigram model from recent context so the
-  //    output has some relation to what was just being discussed.
+  // 3. Generative fallback: seed the bigram model from the user's message so
+  //    the output relates to what was just said rather than looping on the
+  //    bot's previous response (which caused runaway topic chains).
+  //    Only generate when the seed word is in the model's vocabulary; otherwise
+  //    the fallback just random-walks with no connection to the user's input.
   if (bigramModel) {
-    const seedText = lastBotMessage ? `${lastBotMessage} ${userMessage}` : userMessage;
-    const generated = generateBigram(bigramModel, seedText);
-    if (!isGibberish(generated)) return generated;
+    const seedTokens = tokenize(userMessage); // tokenize is defined in this file
+    const knownSeed = seedTokens.find(t => bigramModel.transitions.has(t));
+    if (knownSeed) {
+      const generated = generateBigram(bigramModel, userMessage);
+      if (!isGibberish(generated)) return generated;
+    }
   }
 
   // 4. Last-resort varied fallbacks that invite the user to continue.
