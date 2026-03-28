@@ -1,13 +1,18 @@
+// Models
 import { Bot as AppleiDotBot } from "./models/apple-idot.js";
 import { Bot as MidBot } from "./models/mid.js";
 import { Bot as AdvancedBot } from "./models/advanced.js";
 import { Bot as ResponsiveBot } from "./models/responsive.js";
 import { Bot as ArgumentativeBot } from "./models/argumentative.js";
 
+// Additional features
+import { speakMessage } from "./features/speaker.js";
+
 const MESSAGE_INPUT = document.getElementById('message-input');
 const MESSAGE_FORM = document.getElementById('message-form');
 const MESSAGE_CONTAINER = document.getElementById('message-container');
 const MODEL_SELECT = document.getElementById('model-select');
+const SCROLL_BUTTON = document.getElementById('scroll-button');
 const MODELS = {
   "Apple iDot": AppleiDotBot,
   "Boring": MidBot,
@@ -28,8 +33,9 @@ const STARTING_MESSAGES = [
 
 let bot;
 let currentMessageIndex = 0;
+let activeUtterance = null; // Track the currently active speech utterance, if any
 
-function createMessage(sender, content, self, saved=false) {
+function createMessage(sender, content, self, saved = false) {
   currentMessageIndex++;
   const messageIndex = currentMessageIndex; // capture the current index for this message
 
@@ -56,6 +62,14 @@ function createMessage(sender, content, self, saved=false) {
       }
       if (index > content.length) clearInterval(interval);
     }, 15); // Adjust typing speed here (30ms per character)
+
+    if (activeUtterance) {
+      // Stop active utterance
+      speechSynthesis.cancel();
+      activeUtterance = null;
+    }
+
+    activeUtterance = speakMessage(content);
   }
   message.appendChild(contentSpan);
 
@@ -64,6 +78,8 @@ function createMessage(sender, content, self, saved=false) {
   // Within 80 pixels of the bottom
   if (MESSAGE_CONTAINER.scrollHeight - MESSAGE_CONTAINER.scrollTop - MESSAGE_CONTAINER.clientHeight < 80) {
     MESSAGE_CONTAINER.scrollTop = MESSAGE_CONTAINER.scrollHeight;
+  } else {
+    SCROLL_BUTTON.classList.remove('hidden');
   }
 
   // Save message to local storage
@@ -71,13 +87,13 @@ function createMessage(sender, content, self, saved=false) {
   if (sender === 'System' || saved) {
     return;
   }
-  
+
   const messages = JSON.parse(localStorage.getItem('dog-ai-messages') || '[]');
   messages.push({ sender, content, self });
   localStorage.setItem('dog-ai-messages', JSON.stringify(messages));
 }
 
-function changeModel(modelName, message=true) {
+function changeModel(modelName, message = true) {
   bot = new MODELS[modelName]();
   if (message) {
     console.log(`Switched to model: ${modelName}`);
@@ -149,6 +165,20 @@ MODEL_SELECT.addEventListener('change', () => {
 MESSAGE_FORM.addEventListener('submit', (event) => {
   event.preventDefault();
   onMessageSubmit();
+});
+
+MESSAGE_CONTAINER.addEventListener('scroll', () => {
+  // Within 80 pixels of the bottom
+  if (MESSAGE_CONTAINER.scrollHeight - MESSAGE_CONTAINER.scrollTop - MESSAGE_CONTAINER.clientHeight < 80) {
+    SCROLL_BUTTON.classList.add('hidden');
+  } else {
+    SCROLL_BUTTON.classList.remove('hidden');
+  }
+});
+
+SCROLL_BUTTON.addEventListener('click', () => {
+  MESSAGE_CONTAINER.scrollTop = MESSAGE_CONTAINER.scrollHeight;
+  SCROLL_BUTTON.classList.add('hidden');
 });
 
 window.addEventListener('load', init);

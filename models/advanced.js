@@ -12,6 +12,7 @@
 
 import CONVOS from "../data/convos.js";
 import DATA from "../data/larger.js";
+import { applyRandomFeatures } from "../features/random-features.js";
 
 const CONVERSATION_SIMILARITY_THRESHOLD = 0.25;
 const PROMPT_SIMILARITY_THRESHOLD = 0.2;
@@ -405,6 +406,6 @@ export class Bot {
     this.memory.addUser(userMessage);
     this.memory.addBot(response);
 
-    return response;
+    return applyRandomFeatures(response, userMessage);
   }
 }

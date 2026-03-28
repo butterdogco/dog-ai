@@ -1,4 +1,5 @@
 import DATA from "../data/larger.js";
+import { applyRandomFeatures } from "../features/random-features.js";
 
 const THRESHOLD = 0.3;
 
@@ -449,6 +450,6 @@ export class Bot {
     const response = determineResponse(userMessage, { memory: this.memory });
     this.memory.addUser(userMessage);
     this.memory.addBot(response);
-    return response;
+    return applyRandomFeatures(response, userMessage);
   }
 }

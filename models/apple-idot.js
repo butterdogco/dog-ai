@@ -1,4 +1,5 @@
 import DATA from "../data/basic.js";
+import { applyRandomFeatures } from "../features/random-features.js";
 
 // const THRESHOLD = 0.5;
 const MAX_TOKENS = 50;
@@ -215,6 +216,7 @@ export class Bot {
   }
 
   respond(previousMessage) {
-    return determineResponse(previousMessage, this.model);
+    const response = determineResponse(previousMessage, this.model);
+    return applyRandomFeatures(response, previousMessage);
   }
 }

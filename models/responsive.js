@@ -22,6 +22,7 @@
 
 import CHAT from "../data/chat.js";
 import DATA from "../data/larger.js";
+import { applyRandomFeatures } from "../features/random-features.js";
 
 const CONTEXT_THRESHOLD = 0.25;      // requires a meaningful combined score even with context
 const DIRECT_CHAT_THRESHOLD = 0.55;  // strict — no context, avoid false positives
@@ -388,6 +389,6 @@ export class Bot {
     this.memory.addUser(userMessage);
     this.memory.addBot(response);
 
-    return response;
+    return applyRandomFeatures(response, userMessage);
   }
 }
