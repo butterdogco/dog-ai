@@ -101,6 +101,13 @@ main {
         font-size: 12px;
       }
 
+      .content img {
+        max-width: 100%;
+        width: 400px;
+        border-radius: 4px;
+        margin-top: 4px;
+      }
+
       &.self {
         align-self: flex-end;
         align-items: flex-end;

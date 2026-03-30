@@ -35,6 +35,38 @@ let bot;
 let currentMessageIndex = 0;
 let activeUtterance = null; // Track the currently active speech utterance, if any
 
+function sanitizeInput(input) {
+  // Basic sanitization to prevent HTML injection
+  const div = document.createElement('div');
+  div.textContent = input;
+  return div.innerHTML;
+}
+
+function parseMessage(message) {
+  // Extra features are surrounded by double curly braces, e.g. {{key: value}}
+  
+  const featureRegex = /{{(.*?)}}/g;
+  let match;
+  const features = [];
+  while ((match = featureRegex.exec(message)) !== null) {
+    const [fullMatch, content] = match;
+    const [key, value] = content.split(':').map(s => s.trim());
+    features.push({ key, value });
+    
+    // Handle features
+    switch (key) {
+      case 'image':
+        const img = document.createElement('img');
+        img.src = value;
+        img.alt = "Generated image";
+        // Replace the feature tag in the message with the image's outerHTML
+        message = message.replace(fullMatch, '<br>' + img.outerHTML);
+    }
+  }
+
+  return message;
+}
+
 function createMessage(sender, content, self, saved = false) {
   currentMessageIndex++;
   const messageIndex = currentMessageIndex; // capture the current index for this message
@@ -49,19 +81,23 @@ function createMessage(sender, content, self, saved = false) {
   const contentSpan = document.createElement('span');
   contentSpan.classList.add('content');
   if (self || saved || sender === 'System') {
-    contentSpan.textContent = content;
+    // contentSpan.textContent = content;
+    contentSpan.innerHTML = parseMessage(sanitizeInput(content));
   } else {
     // For "other" messages, we can add a typing effect.
     let index = 1;
     const interval = setInterval(() => {
-      contentSpan.textContent = content.slice(0, index);
+      // contentSpan.textContent = content.slice(0, index);
+      contentSpan.innerHTML = parseMessage(sanitizeInput(content.slice(0, index)));
       index++;
+
       // Within 80 pixels of the bottom
       if (MESSAGE_CONTAINER.scrollHeight - MESSAGE_CONTAINER.scrollTop - MESSAGE_CONTAINER.clientHeight < 80 && messageIndex === currentMessageIndex) {
         MESSAGE_CONTAINER.scrollTop = MESSAGE_CONTAINER.scrollHeight;
       }
+
       if (index > content.length) clearInterval(interval);
-    }, 15); // Adjust typing speed here (30ms per character)
+    }, 15); // Adjust typing speed here (15ms per character)
 
     if (activeUtterance) {
       // Stop active utterance

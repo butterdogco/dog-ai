@@ -112,6 +112,11 @@ const robotAsides = [
   "(logic core: confused but supportive)",
   "(chaos module: enabled)"
 ];
+const randomImages = [
+  "img/gambling.webp",
+  "img/banana.jpeg",
+  "img/peterbeer.jpeg"
+];
 
 function feature1PrependInsult(text) {
   return `${pick(playfulInsults)}, ${text}`;
@@ -243,6 +248,11 @@ function feature20SuddenTinyPoem(text) {
   return `${text} Roses are beep, violets are boop.`;
 }
 
+function feature21RandomImage(text) {
+  const url = pick(randomImages);
+  return `${text} {{image: ${url}}}`;
+}
+
 const featureSpecs = [
   { run: feature1PrependInsult, p: 0.08 },
   { run: feature2AppendInsultTag, p: 0.05 },
@@ -264,6 +274,7 @@ const featureSpecs = [
   { run: feature18ReplaceWordWithNonsense, p: 0.07 },
   { run: feature19AddNarratorLine, p: 0.04 },
   { run: feature20SuddenTinyPoem, p: 0.03 },
+  { run: feature21RandomImage, p: 0.01 }
 ];
 
 export function applyRandomFeatures(text, userMessage = "") {
