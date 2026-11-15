@@ -254,26 +254,26 @@ function feature21RandomImage(text) {
 }
 
 const featureSpecs = [
-  { run: feature1PrependInsult, p: 0.08 },
-  { run: feature2AppendInsultTag, p: 0.05 },
+  //{ run: feature1PrependInsult, p: 0.08 },
+  {// run: feature2AppendInsultTag, p: 0.05 },
   { run: feature3SwapAdjacentChars, p: 0.07 },
   { run: feature4DuplicateLetter, p: 0.07 },
   { run: feature5DropVowelFromWord, p: 0.06 },
   { run: feature6UppercaseRandomWord, p: 0.08 },
   { run: feature7AddEllipsis, p: 0.06 },
-  { run: feature8AddRobotAside, p: 0.07 },
-  { run: feature9AddAbsurdAction, p: 0.08 },
+  //{ run: feature8AddRobotAside, p: 0.07 },
+  //{ run: feature9AddAbsurdAction, p: 0.08 },
   { run: feature10ReverseShortWord, p: 0.05 },
   { run: feature11SwapWordStarts, p: 0.04 },
   { run: feature12StageDirectionPrefix, p: 0.06 },
-  { run: feature13UnexpectedApology, p: 0.05 },
-  { run: feature14AddBeepBoop, p: 0.08 },
-  { run: feature15RhymingTail, p: 0.04 },
-  { run: feature16BackwardTail, p: 0.03 },
-  { run: feature17EchoAsQuestion, p: 0.06 },
+  //{ run: feature13UnexpectedApology, p: 0.05 },
+  //{ run: feature14AddBeepBoop, p: 0.08 },
+  //{ run: feature15RhymingTail, p: 0.04 },
+  //{ run: feature16BackwardTail, p: 0.03 },
+  //{ run: feature17EchoAsQuestion, p: 0.06 },
   { run: feature18ReplaceWordWithNonsense, p: 0.07 },
-  { run: feature19AddNarratorLine, p: 0.04 },
-  { run: feature20SuddenTinyPoem, p: 0.03 },
+  //{ run: feature19AddNarratorLine, p: 0.04 },
+  //{ run: feature20SuddenTinyPoem, p: 0.03 },
   { run: feature21RandomImage, p: 0.01 }
 ];
 
